@@ -3,38 +3,59 @@
     <d-row class="pt-5">
         <d-col>
             <router-link to="/home">
-            <d-button squared size="lg" theme="warning" class="font-weight-bold">
+            <d-button squared size="lg" class="font-weight-bold bg-yellow-linear text-dark">
                     HOME
             </d-button>
             </router-link>
         </d-col>
         <d-col>
-            <h1 class="text-white">CodeTranslate</h1>
+            <h1 >CodeTranslate</h1>
         </d-col>
-        <d-col class="text-right">
-        <popper
-            trigger="clickToToggle"
-            :options="{
-            placement: 'bottom',
-            modifiers: { offset: { offset: '0,10px' } }
-            }">
-            <div class="popper text-left">
-                <p class="font-weight-bold">To print in Python, we use</p>
-                <p>print(“your string here”)</p>
+        <d-col class="">
+        <div class="discuss bg-yellow-radial" v-if="showDiscussionArea">
+            <a @click="closeDiscussionArea" href="#" class="close-icon m-2"></a>
+            <span class="triangle-bottom-right"></span>
+            <div class="chats">
+                <div class="row msg" v-for="(index) in 10" :key="index">
+                    <div class="col-3">
+                        <p class="m-0">23/9/19 5.23 pm</p>
+                        <p>User #312359</p>
+                    </div>
+                    <div class="col-8">
+                        <p>
+                            Hello all! My code is not compiling. I’m translating from Python
+                         to Java.. Is anyone facing the same problem?
+                         <pre>
+                            class Node{
+                                head;
+                                data;
+                                ..
+                            }
+                            </pre> 
+                        </p>
 
-                <p class="font-weight-bold">To print in Java, we use</p>
-                <p class="lead">System.out.println(“your string here”)</p>                        
-            </div>     
-            <d-button squared size="lg" theme="info" class="font-weight-bold" slot="reference">
+                    </div>
+                </div>
+            </div>
+            <div class="sender">
+            <d-input-group class="px-2 mb-1">
+              <d-form-input size="lg" type="text" placeholder="Enter message"></d-form-input>
+              <d-form-input size="lg" type="text" placeholder="Enter Username(optional)"></d-form-input>
+              <d-button outline squared theme="dark" size="lg" class="ml-2">Enter</d-button>
+            </d-input-group>                
+              
+              
+            </div>
+            </div>    
+            <d-button @click="openDiscussionArea" squared size="lg" class="font-weight-bold bg-blue-hr text-dark float-right">
                     DISCUSS
             </d-button>
-        </popper>       
         </d-col>
     </d-row>
     <d-row class="mt-5">
         <d-col class="text-center" v-for="index in 5" :key="index">
-            <d-button block-level squared size="lg" theme="light" >
-                <span class="font-weight-bold">
+            <d-button block-level squared size="lg" class='bg-blue-v' >
+                <span class="text-dark font-weight-bold">
                     Question {{ index }}
                 </span>
             </d-button>
@@ -44,13 +65,13 @@
         <d-col>
             <d-row>
                 <d-col>
-                    <h5 class="text-white">From</h5>
+                    <h5>From</h5>
                     <d-input-group class="mb-2">
                     <d-form-select v-model="translateFrom" :options="languages" />
                     </d-input-group>
                 </d-col>
                 <d-col>
-                    <h5 class="text-white">To</h5>
+                    <h5>To</h5>
                     <d-input-group class="mb-2">
                     <d-form-select v-model="translateTo" :options="languages" />
                     </d-input-group>                    
@@ -59,49 +80,44 @@
 
             <d-row>
                 <d-col class="mt-5 pt-5">
-                    <h4 class="text-white">Task</h4>
-                    <h5 class="text-white">Print “Hello, world!”</h5>
+                    <h4>Task</h4>
+                    <h5>Print “Hello, world!”</h5>
                 </d-col>
             </d-row>
 
             <d-row class="mt-5 pt-5">
                 <d-col>
-                      <popper
-                        trigger="clickToToggle"
-                        :options="{
-                        placement: 'top',
-                        modifiers: { offset: { offset: '0,10px' } }
-                        }">
-                        <div class="popper text-left">
-                            <p class="font-weight-bold">To print in Python, we use</p>
-                            <p>print(“your string here”)</p>
+                    <div class="hints p-2 rounded bg-yellow-linear" v-if="showHints">
+                        <p><strong>To print in Python, we use</strong><p>
+                        <span>print(“your string here”)</span>
 
-                            <p class="font-weight-bold">To print in Java, we use</p>
-                            <p class="lead">System.out.println(“your string here”)</p>                        
-                        </div>
-                        <d-button squared size="lg" theme="info" class="font-weight-bold" slot="reference">
-                                HINTS
-                        </d-button>
+                        <p><strong>To print in Java, we use</strong></p>
+                        <span>System.out.println(“your string here”)</span>
+                        <div class="triangle-bottom-left bg-yellow-linear"></div>
+                    </div>
+                    <d-button @click="toggleHints" squared size="lg" class="font-weight-bold bg-blue-hr text-dark">
+                            HINTS
+                    </d-button>
                     </popper>
                 </d-col>
                 <d-col>
-                    <d-button squared size="lg" theme="info" class="font-weight-bold">
+                    <d-button squared size="lg" class="font-weight-bold bg-blue-hr text-dark" @click="runCode">
                             RUN
                     </d-button>
                 </d-col>
             </d-row>
         </d-col>
         <d-col>
-            <h4 class="text-white">Input Code</h4>
+            <h4>Input Code</h4>
                 <editor v-model="content" @init="editorInit" :lang="translateFrom" theme="chrome" style="width:100%;"></editor>
         </d-col>
         <d-col>
-            <h4 class="text-white">Output</h4>
+            <h4>Output</h4>
             <d-form-textarea v-model="text" style="min-height:400px"
                 :rows="3"
                 :max-rows="6">
             </d-form-textarea>
-            <d-button block-level squared size="lg" theme="info" class="mt-2 font-weight-bold">
+            <d-button block-level squared size="lg" class="mt-2 font-weight-bold bg-blue-hr text-dark">
                     RESET
             </d-button>
         </d-col>
@@ -118,16 +134,30 @@ export default {
             unitCode: '',
             translateFrom: 'java',
             translateTo: 'java',
+            showDiscussionArea: false,
+            showHints: false,
+            originUrl: '',
+
+            questions: [],
+            currentTask: '',
+            text: '',
+            content: "public class Main{	\npublic static void\n       main(String[] args){\n	//Your code here \n}\n}",
+
             languages: [
                 { value: 'java', text: 'Java' },
                 { value: 'python', text: 'Python' },
                 { value: 'c_cpp', text: 'C++' },
                 { value: 'javascript', text: 'Javascript' }
-            ]
+            ],
+            starterCode: {
+                "java": "public class Main{	\npublic static void\n       main(String[] args){\n	//Your code here \n}\n}",
+                "python": "print(#Your code here)",
+                "c_cpp": "#include <iostream>\nusing namespace std;\nint main() \n{\n    cout << //Your code here\n    return 0;\n}",
+                "javascript": "alert( //Your code here );"
+            }
         }
     },
     components: {
-      'popper': Popper,
        editor: require('vue2-ace-editor'),
     },
     methods: {
@@ -142,6 +172,15 @@ export default {
             require('brace/mode/c_cpp') 
             require('brace/theme/chrome')
             require('brace/snippets/javascript') //snippet
+        },
+        openDiscussionArea(){
+            this.showDiscussionArea = true
+        },
+        closeDiscussionArea(){
+            this.showDiscussionArea = false
+        },
+        toggleHints(){
+            this.showHints = !this.showHints
         }
     },
     created() {
