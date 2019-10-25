@@ -1,126 +1,214 @@
-body{
-    min-height: 100vh;
-    background: rgb(254,254,254);
-    background: radial-gradient(circle, rgba(254,254,254,1) 0%, rgba(3,111,122,1) 56%);
+body {
+  min-height: 100vh;
+  background: rgb(254, 254, 254);
+  background: radial-gradient(
+    circle,
+    rgba(254, 254, 254, 1) 0%,
+    rgba(3, 111, 122, 1) 56%
+  );
 }
 
 .hints {
-    height: 15em;
-    position: absolute;
-    width: 23em;
-    top: -16em;
+  height: 15em;
+  position: absolute;
+  width: 23em;
+  top: -16em;
 }
 
 .hint:after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 20%;
-	width: 0;
-	height: 0;
-	border: 1.406em solid transparent;
-	border-top-color: #00aabb;
-	border-bottom: 0;
-	border-left: 0;
-	margin-left: -0.703em;
-	margin-bottom: -1.406em;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  width: 0;
+  height: 0;
+  border: 1.406em solid transparent;
+  border-top-color: #00aabb;
+  border-bottom: 0;
+  border-left: 0;
+  margin-left: -0.703em;
+  margin-bottom: -1.406em;
 }
 
-.bg-yellow-linear{
-	background: rgb(254,254,254);
-	background: linear-gradient(180deg, rgba(254,254,254,1) 0%, rgba(251,218,123,1) 10%);
+.bg-yellow-linear {
+  background: rgb(254, 254, 254);
+  background: linear-gradient(
+    180deg,
+    rgba(254, 254, 254, 1) 0%,
+    rgba(251, 218, 123, 1) 10%
+  );
 }
 
-.bg-yellow-radial{
-	background: rgb(254,254,254);
-	background: radial-gradient(circle, rgba(254,254,254,1) 0%, rgba(251,218,123,1) 50%);
+.bg-yellow-radial {
+  background: rgb(254, 254, 254);
+  background: radial-gradient(
+    circle,
+    rgba(254, 254, 254, 1) 0%,
+    rgba(251, 218, 123, 1) 50%
+  );
 }
 
-.bg-blue-hr{
-	background: rgb(128,167,233);
-	background: linear-gradient(90deg, rgba(128,167,233,1) 20%, rgba(254,254,254,1) 49%, rgba(120,162,232,1) 83%);
+.bg-blue-hr {
+  background: rgb(128, 167, 233);
+  background: linear-gradient(
+    90deg,
+    rgba(128, 167, 233, 1) 20%,
+    rgba(254, 254, 254, 1) 49%,
+    rgba(120, 162, 232, 1) 83%
+  );
 }
 
-.bg-blue-v{
-	background: rgb(254,254,254);
-	background: linear-gradient(180deg, rgba(254,254,254,1) 0%, rgba(120,162,232,1) 26%);
+.bg-blue-v {
+  background: rgb(254, 254, 254);
+  background: linear-gradient(
+    180deg,
+    rgba(254, 254, 254, 1) 0%,
+    rgba(120, 162, 232, 1) 26%
+  );
 }
 
-.bg-gray-radial{
-    background: rgb(254,254,254);
-    background: radial-gradient(circle, rgba(254,254,254,1) 0%, rgba(188,190,193,1) 70%);
+.bg-gray-radial {
+  background: rgb(254, 254, 254);
+  background: radial-gradient(
+    circle,
+    rgba(254, 254, 254, 1) 0%,
+    rgba(188, 190, 193, 1) 70%
+  );
 }
 
 .discuss {
-    height: 40em;
-    position: absolute;
-    width: 53em;
-    right: 10em;
-    z-index: 5;
-	top: 3.3em;
-	/* display: none; */
+  height: 40em;
+  position: absolute;
+  width: 53em;
+  right: 10em;
+  z-index: 5;
+  top: 3.3em;
+  /* display: none; */
 }
 
 .triangle-bottom-right {
-    width: 0;
-    height: 0;
-    border: 0 solid transparent;
-    border-top-width: 400px;
-    border-bottom-width: 0px;
-    border-right: 50px solid rgba(251,218,123,1);
-    position: absolute;
-    right: 0em;
-    -webkit-transform: rotate(15deg);
-    transform: rotate(15deg);
-	top: -1em;
-	z-index: -1;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-top-width: 400px;
+  border-bottom-width: 0px;
+  border-right: 50px solid rgba(251, 218, 123, 1);
+  position: absolute;
+  right: 0em;
+  -webkit-transform: rotate(15deg);
+  transform: rotate(15deg);
+  top: -1em;
+  z-index: -1;
 }
 
-
-.close-icon
-{
-  display:block;
-  box-sizing:border-box;
-  width:20px;
-  height:20px;
-  border-width:3px;
+.close-icon {
+  display: block;
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  border-width: 3px;
   border-style: solid;
-  border-color:black;
-  border-radius:100%;
-  background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, black 46%,  black 56%,transparent 56%, transparent 100%), -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, black 46%,  black 56%,transparent 56%, transparent 100%);
-  background-color:transparent;
+  border-color: black;
+  border-radius: 100%;
+  background: -webkit-linear-gradient(
+      -45deg,
+      transparent 0%,
+      transparent 46%,
+      black 46%,
+      black 56%,
+      transparent 56%,
+      transparent 100%
+    ),
+    -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, black 46%, black
+          56%, transparent 56%, transparent 100%);
+  background-color: transparent;
   /* box-shadow:0px 0px 5px 2px rgba(0,0,0,0.5); */
   transition: all 0.3s ease;
 }
-.chats{
-	overflow-y: scroll; 
-	height:500px;
+.chats {
+  overflow-y: scroll;
+  height: 500px;
 }
-.sender{
-	position: absolute;
-	bottom: 0;
-	width: 100%;
+.sender {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
-.bottom{
-	
-	position: absolute;
-	bottom: 0;
+.bottom {
+  position: absolute;
+  bottom: 0;
 }
 
 .triangle-bottom-left {
-    width: 0;
-    height: 0;
-    border: 0 solid transparent;
-    border-left-width: 20px;
-    border-right-width: 20px;
-    border-top: 20px solid rgba(251,218,123,1);
-    z-index: -1;
-    position: absolute;
-    bottom: -0.8em;
-    left: 2em;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-left-width: 20px;
+  border-right-width: 20px;
+  border-top: 20px solid rgba(251, 218, 123, 1);
+  z-index: -1;
+  position: absolute;
+  bottom: -0.8em;
+  left: 2em;
 }
 
-.msg{
-	margin:0;
+.msg {
+  margin: 0;
+}
+
+.navbar {
+  background: linear-gradient(
+    40deg,
+    rgba(0, 51, 199, 0.3),
+    rgba(209, 149, 249, 0.3)
+  );
+}
+.navbar:not(.top-nav-collapse) {
+  background: transparent;
+}
+.navbar .navbar-brand img {
+  height: 40px;
+  margin: 10px;
+}
+.hm-gradient {
+  background: linear-gradient(
+    40deg,
+    rgba(0, 51, 199, 0.3),
+    rgba(209, 149, 249, 0.3)
+  );
+}
+.heading {
+  margin: 0 6rem;
+  font-weight: 700;
+  color: #b5d3d3;
+  /* color: #5d4267; */
+}
+.subheading {
+  margin: 2.5rem 6rem;
+  color: #014346;
+}
+.btn.btn-margin {
+  margin-left: 6rem;
+  margin-top: 3rem;
+}
+.btn.btn-lily {
+  background: linear-gradient(
+    40deg,
+    rgba(0, 51, 199, 0.7),
+    rgba(209, 149, 249, 0.7)
+  );
+  font-size: 25px;
+  color: white;
+}
+.title {
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+  color: #5d4267;
+}
+.subtitle {
+  color: #bcb2c0;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 6rem;
 }

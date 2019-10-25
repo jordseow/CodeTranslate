@@ -9,10 +9,10 @@
 
         <d-collapse is-nav id="nav-collapse">
           <d-navbar-nav>
-            <d-nav-item href="#">About Us</d-nav-item>
+            <d-nav-item href="aboutus">About Us</d-nav-item>
             <d-nav-item href="#" disabled>Resources</d-nav-item>
             <d-dropdown text="Get Started" is-nav>
-              <d-dropdown-item href="home">View all modules</d-dropdown-item>                
+              <d-dropdown-item href="home">View all modules</d-dropdown-item>
               <d-dropdown-item href="unit/11">Module 1</d-dropdown-item>
               <d-dropdown-item href="unit/12">Module 2</d-dropdown-item>
               <d-dropdown-item href="unit/13">Module 3</d-dropdown-item>
@@ -20,6 +20,8 @@
               <d-dropdown-item href="unit/15">Module 5</d-dropdown-item>
             </d-dropdown>
             <d-nav-item href="#">Contact Us</d-nav-item>
+            <d-nav-item href="pressrelease">Press Release</d-nav-item>
+            <d-nav-item href="#">FAQ</d-nav-item>
           </d-navbar-nav>
 
           <d-navbar-nav class="ml-auto">
@@ -32,25 +34,79 @@
           </d-navbar-nav>
         </d-collapse>
       </d-navbar>
-      <div
+
+      <!-- Main navigation -->
+      <!-- <header> -->
+
+      <!-- Intro -->
+      <!-- <section class="view">
+
+    <div class="row">
+
+      <div class="col-md-6">
+
+        <div class="d-flex flex-column justify-content-center align-items-center h-100">
+          <h1 class="heading display-3">Learning Language Syntax</h1>
+          <h4 class="subheading font-weight-bold">Transfer your </h4>
+          <div class="mr-auto">
+            <button type="button" class="btn btn-lily btn-margin btn-rounded">Get started <i class="fas fa-caret-right ml-3"></i></button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-6">
+
+        <div class="view">
+          <img src="https://images.pexels.com/photos/325045/pexels-photo-325045.jpeg" class="img-fluid" alt="smaple image">
+          <div class="mask flex-center hm-gradient">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+      </section>-->
+      <!-- Intro -->
+
+      <!-- </header> -->
+      <!-- Main navigation -->
+
+      <!-- <div
         class="display-4 text-light font-weight-black white--text text-xs-center mt-5"
         style="text-align:center"
-      >Transfer Your Coding Skills</div>
+      >Transfer Your Coding Skills.</div>
       <div
         class="display-1 text-dark font-weight-bold white--text text-xs-center"
         style="text-align:center"
-      >Start Now</div>
+      >Start Now.</div>
 
       <d-col style="text-align:center" class="mt-5">
         <router-link to="/home">
           <d-button size="lg" theme="warning">Get Started</d-button>
         </router-link>
-      </d-col>
+      </d-col>-->
+      <div>
+        <div class="d-flex flex-column justify-content-center align-items-center h-100 pt-5">
+          <h1 class="heading display-3" style="text-align:center">Learn a New</h1>
+          <h1 class="heading display-3" style="text-align:center">Language Syntax</h1>
+          <h4 class="subheading font-weight-bold">Transfer your Coding Skills with CodeTranslate.</h4>
+          <div class="margin:auto">
+            <button
+              onClick="location='home'"
+              type="button"
+              class="btn btn-lily btn-rounded"
+              style="height:70px; width:250px"
+            >Get Started</button>
+          </div>
+        </div>
+      </div>
 
       <!-- Section: Testimonials v.1 -->
       <section class="text-center my-5 p-1">
         <!-- Section heading -->
-        <h2 class="h1-responsive font-weight-bold mt-5 mb-5">Hear from our Users</h2>
+        <h2 class="h1-responsive font-weight-bold mt-5 mb-5">Hear from our users</h2>
         <!-- Section description
   <p class="dark-grey-text w-responsive mx-auto mb-5">"Lorem ipsum dolor sit amet, consectetur adipisicing elit.
     Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam
@@ -81,7 +137,7 @@
                 <h4 class="font-weight-bold mb-4">John Doe</h4>
                 <hr />
                 <!--Quotation-->
-                <p class="dark-grey-text mt-4">
+                <p class="dark-grey-text mt-4 font-italic">
                   "Lorem ipsum dolor sit amet eos
                   adipisci, consectetur adipisicing elit."
                 </p>
@@ -101,8 +157,7 @@
               />
 
               <!--Background color-->
-              <div class="card-up blue-gradient">
-              </div>
+              <div class="card-up blue-gradient"></div>
               <!--Avatar-->
               <div class="avatar mx-auto white">
                 <img
@@ -116,7 +171,7 @@
                 <h4 class="font-weight-bold mb-4">Anna Aston</h4>
                 <hr />
                 <!--Quotation-->
-                <p class="dark-grey-text mt-4">
+                <p class="dark-grey-text mt-4 font-italic">
                   "Neque cupiditate assumenda in
                   maiores repudiandae mollitia architecto."
                 </p>
@@ -149,7 +204,7 @@
                 <h4 class="font-weight-bold mb-4">Maria Kate</h4>
                 <hr />
                 <!--Quotation-->
-                <p class="dark-grey-text mt-4">
+                <p class="dark-grey-text mt-4 font-italic">
                   "Delectus impedit saepe officiis
                   ab aliquam repellat rem unde ducimus."
                 </p>
@@ -162,6 +217,50 @@
         <!-- Grid row -->
       </section>
       <!-- Section: Testimonials v.1 -->
+      <!-- Section: Features v.1 -->
+      <section class="text-center my-5 pt-5">
+        <!-- Section heading -->
+        <h2 class="h1-responsive font-weight-bold my-5">Why is it so great?</h2>
+        <!-- Section description -->
+        <p
+          class="lead w-responsive mx-auto mb-5 px-5" style="color:white"
+        >With CodeTranslate, students will be able to transfer the skills and logic they know in the first language they have learnt in a guided and interactive fashion into a new language.</p>
+
+        <!-- Grid row -->
+        <div class="row">
+          <!-- Grid column -->
+          <div class="col-md-4">
+            <img src="https://image.flaticon.com/icons/svg/1535/1535019.svg" width="200"/>
+            <h5 class="font-weight-bold my-4" style="color:white">Progressive</h5>
+            <p class="grey-text mb-md-0 mb-5" style="color:white">
+              Lorem ipsum dolor sit amet eos adipisci, consectetur adipisicing elit. 
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4">
+            <img src="https://image.flaticon.com/icons/svg/1541/1541416.svg" width="200"/>
+            <h5 class="font-weight-bold my-4" style="color:white">Flexibilty</h5>
+            <p class="grey-text mb-md-0 mb-5" style="color:white">
+              Lorem ipsum dolor sit amet eos adipisci, consectetur adipisicing elit. 
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4">
+            <img src="https://image.flaticon.com/icons/svg/767/767388.svg" width="200"/>
+            <h5 class="font-weight-bold my-4" style="color:white">Support</h5>
+            <p class="grey-text mb-0" style="color:white">
+              Lorem ipsum dolor sit amet eos adipisci, consectetur adipisicing elit. 
+            </p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </section>
+      <!-- Section: Features v.1 -->
     </v-layout>
   </v-container>
 </template>
