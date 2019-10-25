@@ -17,6 +17,8 @@
   "dependencies": {
     "shards-vue": "^1.0.7",
     "vue": "^2.5.2",
+    "vue-fontawesome-icon": "^1.0.0",
+    "vue-material": "^1.0.0-beta-11",
     "vue-popperjs": "^2.2.0",
     "vue-router": "^3.0.1"
   },
