@@ -3,8 +3,8 @@
     <d-row class="pt-5">
         <d-col>
             <router-link to="/home">
-            <d-button squared size="lg" class="font-weight-bold bg-yellow-linear text-dark">
-                    HOME
+            <d-button size="lg" class="font-weight-bold" theme="warning">
+                    Back
             </d-button>
             </router-link>
         </d-col>
@@ -47,14 +47,14 @@
               
             </div>
             </div>    
-            <d-button @click="openDiscussionArea" squared size="lg" class="font-weight-bold bg-blue-hr text-dark float-right">
-                    DISCUSS
+            <d-button @click="openDiscussionArea" size="lg" class="font-weight-bold bg-blue-hr text-dark float-right">
+                    Discuss
             </d-button>
         </d-col>
     </d-row>
     <d-row class="mt-5">
         <d-col class="text-center" v-for="index in 5" :key="index">
-            <d-button block-level squared size="lg" class='bg-blue-v' >
+            <d-button block-level size="lg" class='bg-blue-v' >
                 <span class="text-dark font-weight-bold">
                     Question {{ index }}
                 </span>
@@ -65,13 +65,13 @@
         <d-col>
             <d-row>
                 <d-col>
-                    <h5>From</h5>
+                    <h5>Question</h5>
                     <d-input-group class="mb-2">
                     <d-form-select v-model="translateFrom" :options="languages" />
                     </d-input-group>
                 </d-col>
                 <d-col>
-                    <h5>To</h5>
+                    <h5>Input</h5>
                     <d-input-group class="mb-2">
                     <d-form-select v-model="translateTo" :options="languages" />
                     </d-input-group>                    
@@ -95,14 +95,14 @@
                         <span>System.out.println(“your string here”)</span>
                         <div class="triangle-bottom-left bg-yellow-linear"></div>
                     </div>
-                    <d-button @click="toggleHints" squared size="lg" class="font-weight-bold bg-blue-hr text-dark">
-                            HINTS
+                    <d-button @click="toggleHints" size="lg" class="font-weight-bold bg-blue-hr text-dark">
+                            Hints
                     </d-button>
                     </popper>
                 </d-col>
                 <d-col>
-                    <d-button squared size="lg" class="font-weight-bold bg-blue-hr text-dark" @click="runCode">
-                            RUN
+                    <d-button size="lg" class="font-weight-bold bg-blue-hr text-dark" @click="runCode">
+                            Run
                     </d-button>
                 </d-col>
             </d-row>
@@ -117,8 +117,8 @@
                 :rows="3"
                 :max-rows="6">
             </d-form-textarea>
-            <d-button block-level squared size="lg" class="mt-2 font-weight-bold bg-blue-hr text-dark">
-                    RESET
+            <d-button block-level size="lg" class="mt-2 font-weight-bold bg-blue-hr text-dark">
+                    Reset
             </d-button>
         </d-col>
     </d-row>
@@ -141,19 +141,19 @@ export default {
             questions: [],
             currentTask: '',
             text: '',
-            content: "public class Main{	\npublic static void\n       main(String[] args){\n	//Your code here \n}\n}",
+            content: "public class Main {    \n    public static void main(String[] args) {\n        // Your code here\n    }\n}",
 
             languages: [
                 { value: 'java', text: 'Java' },
                 { value: 'python', text: 'Python' },
-                { value: 'c_cpp', text: 'C++' },
-                { value: 'javascript', text: 'Javascript' }
+               // { value: 'c_cpp', text: 'C++' },
+               // { value: 'javascript', text: 'Javascript' }
             ],
             starterCode: {
-                "java": "public class Main{	\npublic static void\n       main(String[] args){\n	//Your code here \n}\n}",
+                "java": "public class Main {    \n    public static void main(String[] args) {\n        // Your code here\n    }\n}",
                 "python": "print(#Your code here)",
-                "c_cpp": "#include <iostream>\nusing namespace std;\nint main() \n{\n    cout << //Your code here\n    return 0;\n}",
-                "javascript": "alert( //Your code here );"
+                //"c_cpp": "#include <iostream>\nusing namespace std;\nint main() \n{\n    cout << //Your code here\n    return 0;\n}",
+                //"javascript": "alert( //Your code here );"
             }
         }
     },

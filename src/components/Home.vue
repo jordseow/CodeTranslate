@@ -1,11 +1,18 @@
 <template>
 <d-container class="dr-example-container h-100">
-    <d-row>
-        <d-col cols="12" md="12" lg="12" class="py-5 text-center">
-          <h1 class="text-white">CodeTranslate</h1>
+    <d-row class="pt-5">
+        <d-col cols="4">
+            <router-link to="/landing">
+            <d-button size="lg" class="font-weight-bold" theme="warning">
+                    Home
+            </d-button>
+            </router-link>
+        </d-col>
+        <d-col>
+            <h1 >CodeTranslate</h1>
         </d-col>
     </d-row>
-    <d-row>
+    <d-row class="mt-5">
         <d-col cols="12" md="12" lg="12">
           <d-card class="mb-5 shadow-lg" v-for="(unit, idx) in units" :key="idx">
           <router-link :to="'/unit/'+unit.code">

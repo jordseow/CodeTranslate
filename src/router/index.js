@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import Home from '@/components/Home'
 import Unit from '@/components/Unit'
+import Landing from '@/components/Landing'
 
 Vue.use(Router)
 
@@ -11,7 +12,12 @@ const router = new Router({
   routes: [
     {
       path: '*',
-      redirect: '/home',
+      redirect: '/landing',
+    },
+    {
+      path: '/landing',
+      name: 'Landing',
+      component: Landing,
     },
     {
       path: '/home',
