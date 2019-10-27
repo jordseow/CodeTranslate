@@ -37,7 +37,7 @@ export default {
     return {
       units: {
         0 : {
-          unit: 'Basic Code Translation',
+          unit: 'Print Statements and Commenting',
           code: 11,
           bgcolor: '',
           color: '',
@@ -46,7 +46,7 @@ export default {
           total: 5,
         },
         1 : {
-          unit: 'Intermediate Code Translation',
+          unit: 'Declaring Variables',
           code: 12,
           bgcolor: '',
           color: '',
@@ -55,7 +55,7 @@ export default {
           total: 5
         },
         2 : {
-          unit: 'Advanced Code Translation',
+          unit: 'If-Else Statements',
           code: 13,
           bgcolor: '',
           color: '',
@@ -64,7 +64,7 @@ export default {
           total: 5
         },
         3 : {
-          unit: 'Object Oriented Programming Translation',
+          unit: 'While Statements',
           code: 14,
           bgcolor: '',
           color: '',
@@ -73,7 +73,7 @@ export default {
           total: 5
         },
         4 : {
-          unit: 'Data Structures and Algorithms Translation',
+          unit: 'For Statements',
           code: 15,
           bgcolor: '',
           color: '',

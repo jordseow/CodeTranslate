@@ -6,6 +6,8 @@ import Unit from '@/components/Unit'
 import Landing from '@/components/Landing'
 import PressRelease from '@/components/PressRelease'
 import AboutUs from '@/components/AboutUs'
+import Resources from '@/components/Resources'
+import FAQ from '@/components/FAQ'
 
 Vue.use(Router)
 
@@ -40,6 +42,16 @@ const router = new Router({
       path: '/aboutus',
       name: 'AboutUs',
       component: AboutUs,
+    },
+    {
+      path: '/resources',
+      name: 'Resources',
+      component: Resources,
+    },
+    {
+      path: '/faq',
+      name: 'faq',
+      component: FAQ,
     }
   ]
 })
