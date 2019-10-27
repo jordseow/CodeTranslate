@@ -9,6 +9,9 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'shards-ui/dist/css/shards.css'
 import '@/assets/app.css'
 
+import { EmbedPlugin } from 'bootstrap-vue'
+Vue.use(EmbedPlugin)
+
 Vue.use(ShardsVue)
 
 Vue.config.productionTip = false
