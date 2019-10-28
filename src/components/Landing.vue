@@ -4,7 +4,12 @@
       <d-navbar toggleable="md" type="dark" class="pb-5">
         <d-navbar-toggle target="nav-collapse"></d-navbar-toggle>
         <d-navbar-brand>
-          <h6 class="text-white my-auto mr-4">CodeTranslate</h6>
+            
+            <img class="pr-5"
+                src="@/assets/codetranslatelogo.png"
+                height="50"
+              />
+          <!-- <h6 class="text-white my-auto mr-4">CodeTranslate</h6> -->
         </d-navbar-brand>
 
         <d-collapse is-nav id="nav-collapse">
@@ -21,15 +26,6 @@
             </d-dropdown>
             <d-nav-item href="pressrelease">Press Release</d-nav-item>
             <d-nav-item href="faq">FAQ</d-nav-item>
-          </d-navbar-nav>
-
-          <d-navbar-nav class="ml-auto">
-            <d-input-group seamless>
-              <d-input-group-text slot="prepend">
-                <fa :icon="['fas', 'search']" />
-              </d-input-group-text>
-              <d-input size="sm" placeholder="Search..." />
-            </d-input-group>
           </d-navbar-nav>
         </d-collapse>
       </d-navbar>
