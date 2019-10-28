@@ -123,7 +123,7 @@
         </d-col>
         <d-col>
             <h4>Input Code</h4>
-                <editor v-model="content[currentTask]" @init="editorInit" :lang="translateFrom" theme="chrome" style="width:100%;"></editor>
+                <editor v-model="content[currentTask]" @init="editorInit" :lang="translateTo" theme="chrome" style="width:100%;"></editor>
 
         </d-col>
         <d-col>
