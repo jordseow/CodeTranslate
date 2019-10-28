@@ -1,4 +1,6 @@
 <template>
+<v-container>
+  <img class="pr-5 pt-3 float-left pl-4" src="@/assets/codetranslatelogo.png" height="90" />
   <d-container class="dr-example-container h-100">
     <d-row class="pt-5">
       <d-col cols="4">
@@ -28,6 +30,7 @@
       </d-col>
     </d-row>
   </d-container>
+  </v-container>
 </template>
 <script>
 export default {
@@ -49,7 +52,7 @@ export default {
           bgcolor: "",
           color: "",
           status: "",
-          done: 1,
+          done: 0,
           total: 5
         },
         2: {
@@ -67,7 +70,7 @@ export default {
           bgcolor: "",
           color: "",
           status: "",
-          done: 5,
+          done: 0,
           total: 5
         },
         4: {
@@ -76,7 +79,7 @@ export default {
           bgcolor: "",
           color: "",
           status: "",
-          done: 1,
+          done: 0,
           total: 5
         }
       }

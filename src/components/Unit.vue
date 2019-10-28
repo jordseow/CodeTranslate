@@ -1,4 +1,6 @@
 <template>
+<v-container>
+  <img class="pr-5 pt-3 float-left pl-4" src="@/assets/codetranslatelogo.png" height="90" />
 <d-container class="dr-example-container h-100">
     <d-row class="pt-5">
         <d-col>
@@ -10,9 +12,9 @@
         </d-col>
         <d-col>
             <h1 >CodeTranslate</h1>
-            <span class="text-dark font-weight-bold">
+            <h6 class="text-dark font-weight-bold" align="center">
                     {{topic[unitCode]}}
-            </span>
+            </h6>
         </d-col>
         <d-col class="">
         <div class="discuss bg-yellow-radial" v-if="showDiscussionArea">
@@ -58,7 +60,7 @@
     <d-row class="mt-5">
         <d-col class="text-center" v-for="question in questions" :key="index">
             <span v-if="question===currentTask">
-                <b style="color:black">Question {{ question }}</b>
+                <d-button block-level size="lg" class='text-black font-weight-bold bg-gray-radial'>Question {{ question }}</d-button>
             </span>
             <span v-else-if="isComplete(question)">
             <d-button @click="currentTask=question" block-level size="lg" class='bg-blue-v' >
@@ -95,8 +97,8 @@
 
             <d-row>
                 <d-col class="mt-5 pt-5">
-                    <h4>Task:</h4>
-                    <span style="color:black"> {{ tasks[currentTask] }} </span>
+                    <h4 class="font-weight-bold">Task:</h4>
+                    <span style="color:black"> <strong>{{ tasks[currentTask] }}</strong> </span>
                 </d-col>
             </d-row>
 
@@ -141,15 +143,14 @@
     </d-row>
 
 </d-container>
+</v-container>
 </template>
 <script>
-  import Popper from 'vue-popperjs';
-  import 'vue-popperjs/dist/vue-popper.css';
 export default {
     data() {
         return {
             topic: {
-                11:"Print Statements and Commenting",
+                11: "Print Statements and Commenting",
                 12: "Declaring Variables",
                 13: "If-Else Statements",
                 14: "While Statements",
