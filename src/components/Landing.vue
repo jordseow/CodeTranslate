@@ -95,7 +95,7 @@
               <!--Avatar-->
               <div class="avatar mx-auto white">
                 <img
-                  src="https://previews.dropbox.com/p/thumb/AAkShKhEGsZuxjx3YF5NvYtuhB2jifKSdjUR2bWgqkcVhhIXezoLGGjoLozc9l1-uefGXWUJIOJCdJDJ4D1kVfQChi-pDrFhHXq52Y1fBjXwxJkOs07cJrFhnlJ8kmZi7UzgVCpmTdoJbdpkvl-WKgnESC2paVjPZ8s-epk703U-iWHpbdrCKL4d2VQOc7WUk6hyPGo7zB89JLo5qG1OR6R3toxpo6sDiJMdPWkThvG2_gc_TOIcS32wNwP7zDvG--fkeY8lMerxoMgziFWmDFUOItLYvTxmVHMwHhWNRnYQ7DbbId-dHUAzdd71wqsRKASb3guOuNYDZtsX2j2ty4e5/p.jpeg?fv_content=true&size_mode=5"
+                  src="@/assets/photo_2019-02-27_05-17-53.jpg"
                   width="150"
                   height="150"
                   class="rounded-circle img-fluid mt-4"

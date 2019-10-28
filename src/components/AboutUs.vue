@@ -69,7 +69,7 @@
           </mdb-col>
           <mdb-col lg="3" md="6" class="mb-lg-0 mb-5">
             <img
-              src="https://previews.dropbox.com/p/thumb/AAnlDICZCm9nU0AmTjx8sUtdccsAvD6efruK3um1S7jMLh0uj4bI-TIip7wWrV31In0MFgOSvfuaS8NkfP8GnoLYErLO3Cl2KM3xpi7E17LbegR0chd2oYPneKGoR3TSfs-H6Uyg1twadhFtLhxwYhfQ7vepjnHe4_08OYTvQT5rvK52os_7-pEg9HD9tzMt8UR1DyrHmYXjBHF_l4SPHS9kW0nUFbGowEGN_-NFHHBcLGvhcLXGssadad0JiaixxhJvo6V-Ch8owL1qqor2cGUZDRbHMpHM6ILb588Xrt6W6e3CKJh6MhXh9O2DZqXDqlOhCYiPAXuJvpAs0RSQPKLC/p.jpeg?fv_content=true&size_mode=5"
+              src="@/assets/photo_2016-09-04_00-25-10.jpg"
               width="150"
               class="rounded-circle img-fluid mt-4"
             />

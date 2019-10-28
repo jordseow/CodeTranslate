@@ -97,12 +97,12 @@
           </p>
           <img
             class="pb-5"
-            src="https://previews.dropbox.com/p/thumb/AAl16jBXfSVKX9fFS4AQ96gimoILiGv8Nx4Iq1gp9pfIoKUUCDtZRiE3fnea2WhejDkV8h2IZ2jizC2i_YFjIauWV9nCQi2xOQlH6vThxDquwQVskK_64KTalCORVoJ18o3YXwYAR0z46GWwVK_E4__hVcsswigbFS5w1JvKuXNSobbywLyqbppxXARTJaklmPB8c0oWrQEKcfcv6f8n-yjmC8DEpfKQ8EgW9hPY9PTLXl4RBmqwIMEuzRQtS4QnMcRk3uxQVLgAU-ZM8gjcJKYvJGJLKrZq4kWvN_-PVQbCpWZ-q3U5zOHLLYbBAsGGJEs-f4waiwUUiUBkgohkgStI/p.png?fv_content=true&size_mode=5"
+            src="@/assets/quotationmark.png"
             height="150"
           />
           <img
             class="pl-5"
-            src="https://previews.dropbox.com/p/thumb/AAnO8o9Yj5cPkE5titW_KMkFYNFqQGSoYScTMqupWc485y0BhJ2cW9WIWU1PfJA6NiYn-6Rbrn7ES8OHLr1vDGE-mdQ-xiriW7ODGq7ZdZGpF5Hnlck91af__tmqYN1OxFvYKSFnOCSlVHEiHAD-dmzSClOwcalgeQdQv7OGHRFAp9heo4PUeV9nIcAae5B4RgcPYNNtEXJnPyI78z4KY1w0VmaaTmkf3GvJhQKgGIAJvXidKuGltb1xw9wApIrxNT2alfwFhZn8o8ZK319Ve3oWEswCyu1tvC3Tegjmq0RXow_uZKd9BJY7Nh7gbaKIcKyhpe0_XsGH8LIEEYQVkEad/p.png?fv_content=true&size_mode=5"
+            src="@/assets/imageedit_92_8962161805.png"
             height="200"
           />
           <p class="pt-5" style="color:black" align="justify">

@@ -48,7 +48,7 @@
           <h2 class="h1-responsive font-weight-bold my-5 pt-5">Summary</h2>
           <img
             class="pb-5"
-            src="https://previews.dropbox.com/p/thumb/AAme1ImAVdcARjzHqgW4sHayT1TIuJtfuo2IzCIuBa568piT1MRGTbjSykZeH0MS232ugid4c4W17tRocdK1ygsC83F39mf_uIZSLKn-v80tC75qQIhuyX9RFjlukQ7VIrYeuvfbIxZTQtyeD3-n2EfEBuV82bZeCfbaHRCb85JlXtS7idQzritt2q06H5OhkApUqGRWw3HZXkU9a0jC18CR8jtz1ENTGFex3B-yYwpcMlX-AzgqCWDu6KbR6fEqr-0xFjO1H6gi4a-Co9-O60-0kAFVgG-NMXXr5cne9J7YlOei9sy6FcnTrrWyvRt2zwfqexyk_P6HNcuzzCLaAjri/p.png?fv_content=true&size_mode=5"
+            src="@/assets/python-java-syntax.png"
           />
         </div>
       </v-layout>
