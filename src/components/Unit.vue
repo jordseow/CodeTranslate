@@ -52,26 +52,28 @@
               
             </div>
             </div>    
-            <d-button @click="openDiscussionArea" size="lg" class="font-weight-bold bg-blue-hr text-dark float-right">
-                    Discuss
+            <d-button @click="openDiscussionArea" size="lg" theme="info" class="font-weight-bold float-right">
+                <span style="color:black">
+                    Discuss</span>
             </d-button>
         </d-col>
     </d-row>
     <d-row class="mt-5">
         <d-col class="text-center" v-for="question in questions" :key="index">
-            <span v-if="question===currentTask">
-                <d-button block-level size="lg" class='text-black font-weight-bold bg-gray-radial'>Question {{ question }}</d-button>
-            </span>
-            <span v-else-if="isComplete(question)">
-            <d-button @click="currentTask=question" block-level size="lg" class='bg-blue-v' >
+
+            <span v-if="isComplete(question)">
+            <d-button pill theme="success" @click="currentTask=question" block-level size="lg" >
                 <span class="text-dark font-weight-bold">
                     Question {{ question }}
                 </span>
             </d-button>
             </span>
+            <span v-else-if="question===currentTask">
+                <d-button block-level size="lg" pill theme="light"><span class="text-dark font-weight-bold">Question {{ question }}</span></d-button>
+            </span>
             <span v-else>
-                <d-button @click="currentTask=question" block-level size="lg" class='bg-blue-v'>
-                <span class="text-dark font-weight-bold">
+                <d-button pill theme="primary" @click="currentTask=question" block-level size="lg">
+                <span class=" font-weight-bold">
                     Question {{ question }}
                     </span>
                 </d-button>
@@ -96,7 +98,7 @@
             </d-row>
 
             <d-row>
-                <d-col class="mt-5 pt-5">
+                <d-col class="pt-5">
                     <h4 class="font-weight-bold">Task:</h4>
                     <span style="color:black"> <strong>{{ tasks[currentTask] }}</strong> </span>
                 </d-col>
@@ -112,12 +114,12 @@
                         <span>System.out.println(“your string here”)</span>
                         <div class="triangle-bottom-left bg-yellow-linear"></div>
                     </div>
-                    <d-button @click="toggleHints" size="lg" class="font-weight-bold bg-blue-hr text-dark">
+                    <d-button theme="info" @click="toggleHints" size="lg" class="font-weight-bold text-dark">
                             Hints
                     </d-button>
                 </d-col>
                 <d-col>
-                    <d-button @click="check()" size="lg" class="font-weight-bold bg-blue-hr text-dark" >
+                    <d-button theme="warning"@click="check()" size="lg" class="font-weight-bold text-dark" >
                             Run
                     </d-button>
                 </d-col>
@@ -130,17 +132,28 @@
         </d-col>
         <d-col>
             <h4>Output</h4>
-            <span v-if="isComplete(currentTask)" style="color:green">
+            <span v-if="isComplete(currentTask)" class="font-weight-bold" style="color:green">
                 Great Job!
+                
             </span>
-            <span v-else-if="!isComplete(currentTask)" style="color:red">
+            <span v-else-if="!isComplete(currentTask)" class="font-weight-bold" style="color:red">
                 Try Again!
             </span>
-            <d-button @click="reset" block-level size="lg" class="mt-2 font-weight-bold bg-blue-hr text-dark">
+            <d-button theme="info" @click="reset" block-level size="lg" class="mt-2 font-weight-bold text-dark">
                     Reset
             </d-button>
         </d-col>
     </d-row>
+    <br/>
+    <br/>
+    <hr />
+    <h6 style="color:white">Enter your unique code below to save or restore your progress</h6>
+      <input v-model="userkey" size="30" />
+      <br/>
+      <br/>
+      <d-button theme="warning" @click="save_progress()" class="font-weight-bold">Save</d-button>
+      <d-button theme="warning" @click="restore_progress()" class="font-weight-bold">Restore</d-button>
+      <hr />
 
 </d-container>
 </v-container>
@@ -149,6 +162,8 @@
 export default {
     data() {
         return {
+            logs: {},
+            userkey: "",
             topic: {
                 11: "Print Statements and Commenting",
                 12: "Declaring Variables",
@@ -211,7 +226,8 @@ export default {
                 "python": "print(#Your code here)",
                 //"c_cpp": "#include <iostream>\nusing namespace std;\nint main() \n{\n    cout << //Your code here\n    return 0;\n}",
                 //"javascript": "alert( //Your code here );"
-            }
+            },
+            firebaseUrl: "https://codetranslate-2019.firebaseio.com/"
         }
     },
     components: {
@@ -247,16 +263,58 @@ export default {
                 this.content[this.currentTask] === this.solutions[this.currentTask]
             ) {
                 this.correct[this.currentTask] = true;
-                //this.log_event({ event: "correct", question: this.currentProblem });
+                this.log_event({ event: "correct", question: this.currentTask });
             } else {
                 this.correct[this.currentTask] = false;
-                //this.log_event({ event: "incorrect", question: this.currentProblem });
+                this.log_event({ event: "incorrect", question: this.currentTask });
             }
+            this.fetch_logs();
+        },
+        fetch_logs: async function() {
+            let response = await fetch(this.firebaseUrl + "/logs.json");
+            let data = await response.json();
+            this.logs = data;
         },
         reset(){
             this.correct[this.currentTask] = false
             this.content[this.currentTask] = this.defaultContent[this.currentTask]
-        }
+        },
+        log_event: function(event) {
+            console.log("Logging event.");
+            fetch (this.firebaseUrl + "/logs.json", {
+                method: "post",
+                body: JSON.stringify(event)
+            })
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    console.log("Logged event", data);
+                });
+        },
+        save_progress: async function() {
+            console.log("Saving progress.");
+            let progressUrl =
+              this.firebaseUrl + "/progress/" + this.userkey + ".json";
+            let response = await fetch(progressUrl, {
+              method: "put",
+              body: JSON.stringify({
+                content: this.content,
+                correct: this.correct
+              })
+            });
+            let result = await response.json();
+            console.log(result);
+          },
+          restore_progress: async function() {
+            let progressUrl =
+              this.firebaseUrl + "/progress/" + this.userkey + ".json";
+            let response = await fetch(progressUrl);
+            let data = await response.json();
+
+            this.content = data.content;
+            this.correct = data.correct;
+          },
     },
     created() {
         this.getUnit()
