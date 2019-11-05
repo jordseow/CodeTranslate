@@ -30,15 +30,14 @@
                         <p>
                             Hello all! My code is not compiling. I’m translating from Python
                          to Java.. Is anyone facing the same problem?
-                         <pre>
-                            class Node{
-                                head;
-                                data;
-                                ..
-                            }
-                            </pre> 
+                            <pre>
+                                class Node{
+                                    head;
+                                    data;
+                                    ..
+                                }
+                            </pre>
                         </p>
-
                     </div>
                 </div>
             </div>
@@ -80,17 +79,17 @@
                 </span>
         </d-col>
     </d-row>
-    <d-row class="mt-5">
-        <d-col>
+    <d-row class="mt-5 pb-5">
+        <d-col class="col-5">
             <d-row>
                 <d-col>
-                    <h5>Question</h5>
+                    <h5><strong>Question</strong></h5>
                     <d-input-group class="mb-2">
                     <d-form-select v-model="translateFrom" :options="languages" />
                     </d-input-group>
                 </d-col>
                 <d-col>
-                    <h5>Input</h5>
+                    <h5><strong>Input</strong></h5>
                     <d-input-group class="mb-2">
                     <d-form-select v-model="translateTo" :options="languages" />
                     </d-input-group>                    
@@ -114,36 +113,48 @@
                         <span>System.out.println(“your string here”)</span>
                         <div class="triangle-bottom-left bg-yellow-linear"></div>
                     </div>
-                    <d-button theme="info" @click="toggleHints" size="lg" class="font-weight-bold text-dark">
+                    <d-button theme="info" @click="toggleHints" class="font-weight-bold text-dark">
                             Hints
-                    </d-button>
-                </d-col>
-                <d-col>
-                    <d-button theme="warning"@click="postContents()" size="lg" class="font-weight-bold text-dark" >
-                            Run
                     </d-button>
                 </d-col>
             </d-row>
         </d-col>
         <d-col>
-            <h4>Input Code</h4>
+            <h4><strong>Input Code</strong></h4>
                 <editor v-model="layoutItems[currentTask-1].content" @init="editorInit" :lang="translateTo" theme="chrome" style="width:100%;"></editor>
-
+                    <br/>
+                    <d-button theme="warning" @click="postContents()" block-level size="lg" class="font-weight-bold text-dark" >
+                            Run
+                    </d-button>
         </d-col>
-        <d-col>
-            <h4>Output</h4>
-            <span v-if="isComplete(currentTask)" class="font-weight-bold" style="color:green">
-                Great Job!
-                
-            </span>
-            <span v-else-if="!isComplete(currentTask)" class="font-weight-bold" style="color:red">
-                Try Again!
-            </span>
-            <d-button theme="info" @click="reset" block-level size="lg" class="mt-2 font-weight-bold text-dark">
+        </d-row>
+        <br/>
+        <div align="center" class="margin:auto">
+        <d-row class = "mt-5 pt-5">
+            <d-col>
+            <h4><strong>Output</strong></h4>
+            <div class="px-5 overflow-auto" style="width: 60%">
+                <b-card class="text-center">
+                    <div class="bg-light pt-3 pb-3">
+                         <span v-if="isComplete(currentTask)" class="font-weight-bold" style="color:green">
+                            Great Job!
+                        </span>
+                        <span v-else-if="!isComplete(currentTask)" class="font-weight-bold" style="color:red">
+                            Try Again!
+                        </span>
+                    </div>
+                </b-card>
+            </div>
+           
+            <br/>
+            <d-button theme="info" @click="reset" size="lg" class="mt-3 font-weight-bold text-dark">
                     Reset
             </d-button>
-        </d-col>
-    </d-row>
+            
+            </d-col>
+        </d-row>
+        </div>
+    
     <br/>
     <br/>
     <hr />
