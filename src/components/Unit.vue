@@ -119,7 +119,7 @@
                     </d-button>
                 </d-col>
                 <d-col>
-                    <d-button theme="warning"@click="check()" size="lg" class="font-weight-bold text-dark" >
+                    <d-button theme="warning"@click="postContents()" size="lg" class="font-weight-bold text-dark" >
                             Run
                     </d-button>
                 </d-col>
@@ -127,7 +127,7 @@
         </d-col>
         <d-col>
             <h4>Input Code</h4>
-                <editor v-model="content[currentTask]" @init="editorInit" :lang="translateTo" theme="chrome" style="width:100%;"></editor>
+                <editor v-model="layoutItems[currentTask-1].content" @init="editorInit" :lang="translateTo" theme="chrome" style="width:100%;"></editor>
 
         </d-col>
         <d-col>
@@ -160,7 +160,7 @@
 </template>
 <script>
 export default {
-    data() {
+    data: function() {
         return {
             logs: {},
             userkey: "",
@@ -227,6 +227,13 @@ export default {
                 //"c_cpp": "#include <iostream>\nusing namespace std;\nint main() \n{\n    cout << //Your code here\n    return 0;\n}",
                 //"javascript": "alert( //Your code here );"
             },
+            layoutItems: [
+                {task: 'Print “Hello World!”' , content: 'public class Main {    \n    public static void main(String[] args) {\n        // Your code here\n    }\n}'},
+                {task: 'Prevent printing “Coding is hard” by commenting it out.', content: 'public class Main {    \n    public static void main(String[] args) {\n        System.out.println("Coding is hard");\n        System.out.println("Coding is really fun!");\n    }\n}' },
+                {task: 'Print the value of x.', content: 'public class Main {    \n    public static void main(String[] args) {\n        int x = 5;\n        // Your code here\n    }\n}'},
+                {task: 'Comment out all the error-causing code using multi-line commenting.', content: 'public class Main {    \n    public static void main(String[] args) {\n        harlo harlo\n        java is hard\n        System.out.println("Hello World!");\n    }\n}'},
+                {task: 'Print (“Hello World!”) using string concatenation.', content: 'public class Main {    \n    public static void main(String[] args) {\n        String x = "Hello ";\n        String y = "World!";\n        System.out.println(x+y);\n    }\n}'}
+            ],
             firebaseUrl: "https://codetranslate-2019.firebaseio.com/"
         }
     },
@@ -234,6 +241,37 @@ export default {
        editor: require('vue2-ace-editor'),
     },
     methods: {
+        postContents: function () {
+            // comment: leaving the gatewayUrl empty - API will post back to itself
+            const gatewayUrl = 'https://z1xebr7htc.execute-api.us-east-1.amazonaws.com/default/codeTranslateLambda';
+            fetch(gatewayUrl, {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ shown: { 0: this.solutions[this.currentTask] }, editable: { 0: this.layoutItems[this.currentTask-1].content } })
+            }).then(response => {
+                return response.json()
+            }).then(data => {
+                this.answer = JSON.parse(JSON.stringify(data))
+                return this.toggleQuestionStatus(data)
+            })
+        },
+        toggleQuestionStatus(data) {
+                if (data.textFeedback) {
+                    const searchText = data.textFeedback
+                    if (searchText.includes("You got the answer")) {
+                        this.correct[this.currentTask] = true;
+                        this.log_event({ event: "correct", question: this.currentTask });   
+                    }
+                    else if (searchText.includes("You have missed")){
+                        this.correct[this.currentTask] = false;
+                        this.log_event({ event: "incorrect", question: this.currentTask });
+                    }
+                    this.fetch_logs();
+                }
+        },
         getUnit(){
             this.unitCode = this.$route.params.code      
         },
