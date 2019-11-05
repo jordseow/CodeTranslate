@@ -162,7 +162,7 @@
       <input v-model="userkey" size="30" />
       <br/>
       <br/>
-      <d-button theme="warning" @click="save_progress()" class="font-weight-bold">Save</d-button>
+      <d-button theme="warning" @click="save_progress()" class="px-4 mr-2 font-weight-bold">Save</d-button>
       <d-button theme="warning" @click="restore_progress()" class="font-weight-bold">Restore</d-button>
       <hr />
 
