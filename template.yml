@@ -42,7 +42,7 @@ Resources:
   DynamoDBTable:
     Type: 'AWS::DynamoDB::Table'
     Properties:
-      TableName: !Ref TableName
+      TableName: !Ref BT3103Dynamo 
       AttributeDefinitions:
         - AttributeName: itemId
           AttributeType: S
