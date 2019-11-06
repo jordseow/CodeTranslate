@@ -21,12 +21,12 @@ Parameters:
     ConstraintDescription: 'Required parameter. Must be characters only. No numbers allowed.'
     
 Resources:
-  HelloWorldFunction:
+  CodeTranslate:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: hello_world/
-      Handler: app.lambda_handler
-      Runtime: python3.6
+      CodeUri: 
+      Handler: index.handler
+      Runtime: nodejs10.x
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref TableName
@@ -58,8 +58,8 @@ Outputs:
     Description: "API Gateway endpoint URL for Prod stage for Hello World function"
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
   HelloWorldFunction:
-    Description: "Hello World Lambda Function ARN"
+    Description: "CodeTranslate Lambda Function ARN"
     Value: !GetAtt HelloWorldFunction.Arn
   HelloWorldFunctionIamRole:
-    Description: "Implicit IAM Role created for Hello World function"
+    Description: "Implicit IAM Role created for CodeTranslate"
     Value: !GetAtt HelloWorldFunctionRole.Arn
