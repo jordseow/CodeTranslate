@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'sam-app
+
+  Sample SAM Template for sam-app
+
+  '
+Globals:
+  Function:
+    Timeout: 3
+Resources:
+  CodeTranslate:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://codetranslate11/2c9d271d9336722022d285a318174e53
+      Handler: index.handler
+      Runtime: nodejs10.x
+      Events:
+        CodeTranslate:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: ANY
