@@ -10,56 +10,56 @@ Globals:
   Function:
     Timeout: 3
 
-Parameters:
-  TableName:
-    Type: String
-    Default: 'loggingTable'
-    Description: BT3103Dynamo
-    MinLength: 3
-    MaxLength: 50
-    AllowedPattern: ^[A-Za-z]+$
-    ConstraintDescription: 'Required parameter. Must be characters only. No numbers allowed.'
+# Parameters:
+#   TableName:
+#     Type: String
+#     Default: 'loggingTable'
+#     Description: BT3103Dynamo
+#     MinLength: 3
+#     MaxLength: 50
+#     AllowedPattern: ^[A-Za-z]+$
+#     ConstraintDescription: 'Required parameter. Must be characters only. No numbers allowed.'
     
-Resources:
-  CodeTranslate:
-    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-    Properties:
-      CodeUri: 
-      Handler: index.handler
-      Runtime: nodejs10.x
-      Policies:
-        - DynamoDBCrudPolicy:
-            TableName: !Ref BT3103Dynamo
-      Environment:
-        Variables:
-          TABLE_NAME: !Ref BT3103Dynamo   
-      Events:
-        CodeTranslate:
-          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
-          Properties:
-            Path:  /{proxy+}
-            Method: ANY
-  DynamoDBTable:
-    Type: 'AWS::DynamoDB::Table'
-    Properties:
-      TableName: !Ref BT3103Dynamo 
-      AttributeDefinitions:
-        - AttributeName: itemId
-          AttributeType: S
-      KeySchema:
-        - AttributeName: itemId
-          KeyType: HASH
-      BillingMode: PAY_PER_REQUEST
-Outputs:
-  ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
-  Find out more about other implicit resources you can reference within SAM
-  https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
-  CodeTranslateApi:
-    Description: "API Gateway endpoint URL for Prod stage for CodeTranslate function"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
-  CodeTranslateFunction:
-    Description: "CodeTranslate Lambda Function ARN"
-    Value: !GetAtt CodeTranslateFunction.Arn
-  CodeTranslateFunctionIamRole:
-    Description: "Implicit IAM Role created for CodeTranslate"
-    Value: !GetAtt CodeTranslateFunctionRole.Arn
+# Resources:
+#   CodeTranslate:
+#     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+#     Properties:
+#       CodeUri: 
+#       Handler: index.handler
+#       Runtime: nodejs10.x
+#       Policies:
+#         - DynamoDBCrudPolicy:
+#             TableName: !Ref BT3103Dynamo
+#       Environment:
+#         Variables:
+#           TABLE_NAME: !Ref BT3103Dynamo   
+#       Events:
+#         CodeTranslate:
+#           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+#           Properties:
+#             Path:  /{proxy+}
+#             Method: ANY
+#   DynamoDBTable:
+#     Type: 'AWS::DynamoDB::Table'
+#     Properties:
+#       TableName: !Ref BT3103Dynamo 
+#       AttributeDefinitions:
+#         - AttributeName: itemId
+#           AttributeType: S
+#       KeySchema:
+#         - AttributeName: itemId
+#           KeyType: HASH
+#       BillingMode: PAY_PER_REQUEST
+# Outputs:
+#   ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+#   Find out more about other implicit resources you can reference within SAM
+#   https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+#   CodeTranslateApi:
+#     Description: "API Gateway endpoint URL for Prod stage for CodeTranslate function"
+#     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
+#   CodeTranslateFunction:
+#     Description: "CodeTranslate Lambda Function ARN"
+#     Value: !GetAtt CodeTranslateFunction.Arn
+#   CodeTranslateFunctionIamRole:
+#     Description: "Implicit IAM Role created for CodeTranslate"
+#     Value: !GetAtt CodeTranslateFunctionRole.Arn
