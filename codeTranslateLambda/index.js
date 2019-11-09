@@ -8,8 +8,10 @@ exports.handler = async (event) => {
         const expectedSolution = parsedBodyContent["shown"]["0"]
         const userSolution = parsedBodyContent["editable"]["0"]
         let results = ""
+        let complete = ""
         
         userSolution ===  expectedSolution ? (results = "You got the answer!") : results = "You have missed the answer."
+        userSolution ===  expectedSolution ? (complete = "true") : complete = "false"
         
         return {
             "statusCode": 200,
@@ -18,7 +20,11 @@ exports.handler = async (event) => {
                 'Content-Type': 'text/html',
             },
             "body": JSON.stringify({
-                "textFeedback": results
+                "textFeedback": results,
+                "isComplete": complete,
+                "jsonFeedback": {'results':results},
+                "htmlFeedback": results
+                
             })
         }
     }
