@@ -105,11 +105,11 @@
             <d-row class="mt-5 pt-5">
                 <d-col>
                     <div class="hints p-2 rounded bg-yellow-linear" v-if="showHints">
-                        <p><strong>In Python:</strong><p>
-                        <span>{{ layoutItems[currentTask-1].hintspython }}</span>
+                        <p style="color:black"><strong>In Python:</strong><p>
+                        <span style="color:black">{{ layoutItems[currentTask-1].hintspython }}</span>
 
-                        <p><strong>In Java:</strong></p>
-                        <span>{{ layoutItems[currentTask-1].hintsjava }}</span>
+                        <p style="color:black"><strong>In Java:</strong></p>
+                        <span style="color:black">{{ layoutItems[currentTask-1].hintsjava }}</span>
                         <div class="triangle-bottom-left bg-yellow-linear"></div>
                     </div>
                     <d-button theme="info" @click="toggleHints" class="font-weight-bold text-dark">
@@ -235,11 +235,31 @@ export default {
             //     "python": "print(#Your code here)",
             // },
             layoutItems: [
-                {task: 'Mama Pig told her 3 little pigs: "go seek out your fortune". The 3 little pigs ventured out together to build their own houses. You are Mr Wolf. You spotted the first little pig building a house of straw. You decided to pay him a visit. At the doorstep, you wanted the first little pig to let you in. In the editable code block, add in a line to print out "Little pig, little pig, let me come in".' , contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        // Your code here\n    }\n}', contentpython: '', hintsjava:'java', hintspython:'python'},
-                {task: 'Because you are Mr Wolf, the first little pig refused to open the door. Comment out the wrong reply.', contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        System.out.println("No, no, by the hair on my chinny chin chin");\n        System.out.println("Welcome in, Mr Wolf!");\n    }\n}',  contentpython: 'print("No, no, by the hair on my chinny chin chin")\nprint("Welcome in, Mr Wolf!")', hintsjava:'', hintspython:'' },
-                {task: 'You know that you can easily blow the straw house down in 3 huffs and puffs. You gave the first little pig a warning... Change the editable code block so that it prints out the correct number of huffs and puffs.', contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        int numberOfHuffsPuffs;\n        System.out.println("Open the door now or I will huff and puff " \n                + numberOfHuffsPuffs \n                + " times and blow your house in!");\n    }\n}',  contentpython: '# Uncomment the line below and assign an appropriate value to the variable\n# number_of_huffs_puffs = \nprint("Open the door now or I will huff and puff " + number_of_huffs_puffs + " times and blow your house in!")', hintsjava:'', hintspython:''},
-                {task: 'You decided to wait 5 minutes before making your next move. Edit the java code below so that: If the door is closed after 5 mins, print "I am blowing your house in!" Else eat the first little pig by printing "I will eat you now!"', contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        // Do not edit code here\n        boolean doorClosed = true;\n\n        // After 5 minutes\n        // Edit code below\n        if () {\n            //\n        } else {\n            //\n        }\n    }\n}',  contentpython: '', hintsjava:'', hintspython:''},
-                {task: 'After blowing the house down, you see the first little pig curled up in the corner, helpless. Being the softhearted Mr Wolf you are, you decided that you would only: If he is more than 50kg, eat him. Else you will let him go. The pig is 30kg. Fill up the code and: Return true if you eat the pig. Return false if you let him go.', contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        int weight;\n        boolean letGo;\n        if (weight > ) {\n            letGo = false;\n        } else {\n            letGo = true;\n        }\n        System.out.println(letGo);\n    }\n}',  contentpython: '', hintsjava:'', hintspython:''}
+                {task: 'Mama Pig told her 3 little pigs: "go seek out your fortune". The 3 little pigs ventured out together to build their own houses. You are Mr Wolf. You spotted the first little pig building a house of straw. You decided to pay him a visit. At the doorstep, you wanted the first little pig to let you in. In the editable code block, add in a line to print out "Little pig, little pig, let me come in".' 
+                        , contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        // Your code here\n    }\n}'
+                        , contentpython: ''
+                        , hintsjava:'System.out.println("") is used to print'
+                        , hintspython:'print("") is used to print'},
+                {task: 'Because you are Mr Wolf, the first little pig refused to open the door. Comment out the wrong reply.'
+                        , contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        System.out.println("No, no, by the hair on my chinny chin chin");\n        System.out.println("Welcome in, Mr Wolf!");\n    }\n}'
+                        , contentpython: 'print("No, no, by the hair on my chinny chin chin")\nprint("Welcome in, Mr Wolf!")'
+                        , hintsjava:'You use // for line comment in Java'
+                        , hintspython:'You use # to comment in Python' },
+                {task: 'You know that you can easily blow the straw house down in 3 huffs and puffs. You gave the first little pig a warning... Change the editable code block so that it prints out the correct number of huffs and puffs.'
+                        , contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        int numberOfHuffsPuffs;\n        System.out.println("Open the door now or I will huff and puff " \n                + numberOfHuffsPuffs \n                + " times and blow your house in!");\n    }\n}'
+                        , contentpython: '# Uncomment the line below and assign an appropriate value to the variable\n# number_of_huffs_puffs = \nprint("Open the door now or I will huff and puff " + number_of_huffs_puffs + " times and blow your house in!")'
+                        , hintsjava:'You have to indicate the data type before the variable name (e.g. int, boolean, String, double)'
+                        , hintspython:'You can declare the variable without having to indicate the data type'},
+                {task: 'You decided to wait 5 minutes before making your next move. Edit the java code below so that: If the door is closed after 5 mins, print "I am blowing your house in!" Else eat the first little pig by printing "I will eat you now!"'
+                        , contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        // Do not edit code here\n        boolean doorClosed = true;\n\n        // After 5 minutes\n        // Edit code below\n        if () {\n            //\n        } else {\n            //\n        }\n    }\n}'
+                        , contentpython: 'door_closed = True\n\n# After 5 minutes\n# Edit code below\nif :\n    #\nelse:\n    #'
+                        , hintsjava:'Use "if (somecondition) { }" and "else { }"'
+                        , hintspython:'Use "if somecondition:" and "else:"'},
+                {task: 'After blowing the house down, you see the first little pig curled up in the corner, helpless. Being the softhearted Mr Wolf you are, you decided that you would only: If he is more than 50kg, eat him. Else you will let him go. The pig is 30kg. Fill up the code and: Return true if you eat the pig. Return false if you let him go.'
+                        , contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        int weight;\n        boolean letGo;\n        if (weight > ) {\n            letGo = ;\n        } else {\n            letGo = ;\n        }\n        System.out.println(letGo);\n    }\n}'
+                        , contentpython: 'weight =\nletGo = False\nif weight < :\n    letGo = \nprint(letGo)'
+                        , hintsjava:'Use "if (somecondition) { }" and "else { }"'
+                        , hintspython:'Use "if somecondition:" and "else:"'}
             ],
             firebaseUrl: "https://codetranslate-2019.firebaseio.com/"
         }

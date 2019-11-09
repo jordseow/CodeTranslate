@@ -105,11 +105,11 @@
             <d-row class="mt-5 pt-5">
                 <d-col>
                     <div class="hints p-2 rounded bg-yellow-linear" v-if="showHints">
-                        <p><strong>In Python:</strong><p>
-                        <span>{{ layoutItems[currentTask-1].hintspython }}</span>
+                        <p style="color:black"><strong>In Python:</strong><p>
+                        <span style="color:black">{{ layoutItems[currentTask-1].hintspython }}</span>
 
-                        <p><strong>In Java:</strong></p>
-                        <span>{{ layoutItems[currentTask-1].hintsjava }}</span>
+                        <p style="color:black"><strong>In Java:</strong></p>
+                        <span style="color:black">{{ layoutItems[currentTask-1].hintsjava }}</span>
                         <div class="triangle-bottom-left bg-yellow-linear"></div>
                     </div>
                     <d-button theme="info" @click="toggleHints" class="font-weight-bold text-dark">
