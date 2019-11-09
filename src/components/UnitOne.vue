@@ -139,7 +139,7 @@
                          <span v-if="isComplete(currentTask)" class="font-weight-bold" style="color:green">
                             Great Job!
                         </span>
-                        <span v-else-if="!isComplete(currentTask)" class="font-weight-bold" style="color:red">
+                        <span v-else-if="!isComplete(currentTask) && tryCount != 0" class="font-weight-bold" style="color:red">
                             Try Again!
                         </span>
                     </div>
@@ -182,6 +182,7 @@ export default {
                 14: "While Statements",
                 15: "For Statements"
             },
+            tryCount: 0,
             unitCode: '',
             questions: [1,2,3,4,5],
             translateFrom: 'python',
@@ -322,6 +323,7 @@ export default {
             return this.correct[task];
         },
         check: function() {
+            tryCount++;
             if (
                 this.content[this.currentTask] === this.solutions[this.currentTask]
             ) {
@@ -341,6 +343,7 @@ export default {
         reset(){
             this.correct[this.currentTask] = false
             this.content[this.currentTask] = this.defaultContent[this.currentTask]
+            tryCount = 0
         },
         log_event: function(event) {
             console.log("Logging event.");
