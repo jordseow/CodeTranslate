@@ -14,8 +14,8 @@
             <d-nav-item href="resources">Resources</d-nav-item>
             <d-dropdown text="Get Started" is-nav>
               <d-dropdown-item href="home">View all modules</d-dropdown-item>
-              <d-dropdown-item href="unitone">Module 1: Print Statements and Commenting</d-dropdown-item>
-              <d-dropdown-item href="unittwo">Module 2: Declaring Variables</d-dropdown-item>
+              <d-dropdown-item href="unitone">Module 1: Printing, Commenting, Declaring Variables and If-Else</d-dropdown-item>
+              <d-dropdown-item href="unittwo">Module 2: While and For Loops</d-dropdown-item>
             </d-dropdown>
             <d-nav-item href="pressrelease">Press Release</d-nav-item>
             <d-nav-item href="faq">FAQ</d-nav-item>
@@ -170,7 +170,7 @@
             <p
               class="grey-text mb-md-0 mb-5 px-5"
               style="color:white"
-            >Questions for each topic are broken down into 5 parts for users to attempt. 5 different modules are currently available for users to practise on different types of syntax.</p>
+            >Questions for each topic are broken down into 5 parts for users to attempt. 2 different modules are currently available for users to practise on different types of syntax.</p>
           </div>
           <!-- Grid column -->
 
@@ -181,7 +181,7 @@
             <p
               class="grey-text mb-md-0 mb-5 px-5"
               style="color:white"
-            >Users can choose what language they want to practise on for each questions. Languages available are Python, Java, JavaScript and C++.</p>
+            >Users can choose what language they want to practise on for each questions. Languages available are Python and Java (JavaScript and C++ coming soon!)</p>
           </div>
           <!-- Grid column -->
 

@@ -14,6 +14,9 @@
     "build": "node build/build.js",
     "deploy": "serverless client deploy --no-confirm && serverless deploy"
   },
+  "jest": {
+    "testURL": "http://localhost/"
+  },
   "dependencies": {
     "bootstrap-vue": "^2.0.4",
     "shards-vue": "^1.0.7",
