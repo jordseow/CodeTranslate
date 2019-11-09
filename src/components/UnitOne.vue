@@ -12,9 +12,9 @@
         </d-col>
         <d-col>
             <h1 >CodeTranslate</h1>
-            <h6 class="text-dark font-weight-bold" align="center">
-                    {{topic[unitCode]}}
-            </h6>
+            <h5 class="text-dark font-weight-bold" align="center">
+                    Printing, Commenting, Declaring Variables and If-Else
+            </h5>
         </d-col>
         <d-col class="">
         <div class="discuss bg-yellow-radial" v-if="showDiscussionArea">
@@ -59,7 +59,6 @@
     </d-row>
     <d-row class="mt-5">
         <d-col class="text-center" v-for="question in questions" :key="index">
-
             <span v-if="isComplete(question)">
             <d-button pill theme="success" @click="currentTask=question" block-level size="lg" >
                 <span class="text-dark font-weight-bold">
@@ -82,14 +81,14 @@
     <d-row class="mt-5 pb-5">
         <d-col class="col-5">
             <d-row>
-                <d-col>
+                <!-- <d-col>
                     <h5><strong>Question</strong></h5>
                     <d-input-group class="mb-2">
                     <d-form-select v-model="translateFrom" :options="languages" />
                     </d-input-group>
-                </d-col>
-                <d-col>
-                    <h5><strong>Input</strong></h5>
+                </d-col> -->
+                <d-col class="col-5">
+                    <h5><strong>Input Language</strong></h5>
                     <d-input-group class="mb-2">
                     <d-form-select v-model="translateTo" :options="languages" />
                     </d-input-group>                    
@@ -99,7 +98,7 @@
             <d-row>
                 <d-col class="pt-5">
                     <h4 class="font-weight-bold">Task:</h4>
-                    <span style="color:black"> <strong>{{ tasks[currentTask] }}</strong> </span>
+                    <span style="color:black"> <strong>{{ layoutItems[currentTask-1].task }}</strong> </span>
                 </d-col>
             </d-row>
 
@@ -121,7 +120,8 @@
         </d-col>
         <d-col>
             <h4><strong>Input Code</strong></h4>
-                <editor v-model="layoutItems[currentTask-1].content" @init="editorInit" :lang="translateTo" theme="chrome" style="width:100%;"></editor>
+                <span v-if='translateTo=="java"'><editor v-model="layoutItems[currentTask-1].contentjava" @init="editorInit" :lang="translateTo" theme="chrome" style="width:100%;"></editor></span>
+                <span v-else><editor v-model="layoutItems[currentTask-1].contentpython" @init="editorInit" :lang="translateTo" theme="chrome" style="width:100%;"></editor></span>
                     <br/>
                     <d-button theme="warning" @click="postContents()" block-level size="lg" class="font-weight-bold text-dark" >
                             Run
@@ -189,29 +189,29 @@ export default {
             showDiscussionArea: false,
             showHints: false,
             originUrl: '',
-            tasks: {
-                1: 'Print “Hello World!”',
-                2: 'Prevent printing “Coding is hard” by commenting it out.',
-                3: 'Print the value of x.',
-                4: 'Comment out all the error-causing code using multi-line commenting.',
-                5: 'Print (“Hello World!”) using string concatenation.'
-                },
+            // tasks: {
+            //     1: 'Print “Hello World!”',
+            //     2: 'Prevent printing “Coding is hard” by commenting it out.',
+            //     3: 'Print the value of x.',
+            //     4: 'Comment out all the error-causing code using multi-line commenting.',
+            //     5: 'Print (“Hello World!”) using string concatenation.'
+            //     },
             currentTask: 1,
             text: '',
-            content: {
-                1: 'public class Main {    \n    public static void main(String[] args) {\n        // Your code here\n    }\n}',
-                2: 'public class Main {    \n    public static void main(String[] args) {\n        System.out.println("Coding is hard");\n        System.out.println("Coding is really fun!");\n    }\n}',
-                3: 'public class Main {    \n    public static void main(String[] args) {\n        int x = 5;\n        // Your code here\n    }\n}',
-                4: 'public class Main {    \n    public static void main(String[] args) {\n        harlo harlo\n        java is hard\n        System.out.println("Hello World!");\n    }\n}',
-                5: 'public class Main {    \n    public static void main(String[] args) {\n        String x = "Hello ";\n        String y = "World!";\n        // Your code here\n    }\n}'
-            },
-            defaultContent: {
-                1: 'public class Main {    \n    public static void main(String[] args) {\n        // Your code here\n    }\n}',
-                2: 'public class Main {    \n    public static void main(String[] args) {\n        System.out.println("Coding is hard");\n        System.out.println("Coding is really fun!");\n    }\n}',
-                3: 'public class Main {    \n    public static void main(String[] args) {\n        int x = 5;\n        // Your code here\n    }\n}',
-                4: 'public class Main {    \n    public static void main(String[] args) {\n        harlo harlo\n        java is hard\n        System.out.println("Hello World!");\n    }\n}',
-                5: 'public class Main {    \n    public static void main(String[] args) {\n        String x = "Hello ";\n        String y = "World!";\n        // Your code here\n    }\n}'
-            },
+            // content: {
+            //     1: 'public class Main {    \n    public static void main(String[] args) {\n        // Your code here\n    }\n}',
+            //     2: 'public class Main {    \n    public static void main(String[] args) {\n        System.out.println("Coding is hard");\n        System.out.println("Coding is really fun!");\n    }\n}',
+            //     3: 'public class Main {    \n    public static void main(String[] args) {\n        int x = 5;\n        // Your code here\n    }\n}',
+            //     4: 'public class Main {    \n    public static void main(String[] args) {\n        harlo harlo\n        java is hard\n        System.out.println("Hello World!");\n    }\n}',
+            //     5: 'public class Main {    \n    public static void main(String[] args) {\n        String x = "Hello ";\n        String y = "World!";\n        // Your code here\n    }\n}'
+            // },
+            // defaultContent: {
+            //     1: 'public class Main {    \n    public static void main(String[] args) {\n        // Your code here\n    }\n}',
+            //     2: 'public class Main {    \n    public static void main(String[] args) {\n        System.out.println("Coding is hard");\n        System.out.println("Coding is really fun!");\n    }\n}',
+            //     3: 'public class Main {    \n    public static void main(String[] args) {\n        int x = 5;\n        // Your code here\n    }\n}',
+            //     4: 'public class Main {    \n    public static void main(String[] args) {\n        harlo harlo\n        java is hard\n        System.out.println("Hello World!");\n    }\n}',
+            //     5: 'public class Main {    \n    public static void main(String[] args) {\n        String x = "Hello ";\n        String y = "World!";\n        // Your code here\n    }\n}'
+            // },
             solutions: {
                 1: 'public class Main {    \n    public static void main(String[] args) {\n        System.out.println("Hello World!");\n    }\n}',
                 2: 'public class Main {    \n    public static void main(String[] args) {\n        //System.out.println("Coding is hard");\n        System.out.println("Coding is really fun!");\n    }\n}',
@@ -229,21 +229,17 @@ export default {
             languages: [
                 { value: 'java', text: 'Java' },
                 { value: 'python', text: 'Python' },
-               // { value: 'c_cpp', text: 'C++' },
-               // { value: 'javascript', text: 'Javascript' }
             ],
-            starterCode: {
-                "java": "public class Main {    \n    public static void main(String[] args) {\n        // Your code here\n    }\n}",
-                "python": "print(#Your code here)",
-                //"c_cpp": "#include <iostream>\nusing namespace std;\nint main() \n{\n    cout << //Your code here\n    return 0;\n}",
-                //"javascript": "alert( //Your code here );"
-            },
+            // starterCode: {
+            //     "java": "public class Main {    \n    public static void main(String[] args) {\n        // Your code here\n    }\n}",
+            //     "python": "print(#Your code here)",
+            // },
             layoutItems: [
-                {task: 'Print “Hello World!”' , content: 'public class Main {    \n    public static void main(String[] args) {\n        // Your code here\n    }\n}'},
-                {task: 'Prevent printing “Coding is hard” by commenting it out.', content: 'public class Main {    \n    public static void main(String[] args) {\n        System.out.println("Coding is hard");\n        System.out.println("Coding is really fun!");\n    }\n}' },
-                {task: 'Print the value of x.', content: 'public class Main {    \n    public static void main(String[] args) {\n        int x = 5;\n        // Your code here\n    }\n}'},
-                {task: 'Comment out all the error-causing code using multi-line commenting.', content: 'public class Main {    \n    public static void main(String[] args) {\n        harlo harlo\n        java is hard\n        System.out.println("Hello World!");\n    }\n}'},
-                {task: 'Print (“Hello World!”) using string concatenation.', content: 'public class Main {    \n    public static void main(String[] args) {\n        String x = "Hello ";\n        String y = "World!";\n        System.out.println(x+y);\n    }\n}'}
+                {task: 'Mama Pig told her 3 little pigs: "go seek out your fortune". The 3 little pigs ventured out together to build their own houses. You are Mr Wolf. You spotted the first little pig building a house of straw. You decided to pay him a visit. At the doorstep, you wanted the first little pig to let you in. In the editable code block, add in a line to print out "Little pig, little pig, let me come in".' , contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        // Your code here\n    }\n}'},
+                {task: 'Because you are Mr Wolf, the first little pig refused to open the door. Comment out the wrong reply.', contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        System.out.println("Coding is hard");\n        System.out.println("Coding is really fun!");\n    }\n}' },
+                {task: 'You know that you can easily blow the straw house down in 3 huffs and puffs. You gave the first little pig a warning... Change the editable code block so that it prints out the correct number of huffs and puffs.', contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        int x = 5;\n        // Your code here\n    }\n}'},
+                {task: 'You decided to wait 5 minutes before making your next move. Edit the java code below so that: If the door is closed after 5 mins, print "I am blowing your house in!" Else eat the first little pig by printing "I will eat you now!"', contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        harlo harlo\n        java is hard\n        System.out.println("Hello World!");\n    }\n}'},
+                {task: 'After blowing the house down, you see the first little pig curled up in the corner, helpless. Being the softhearted Mr Wolf you are, you decided that you would only: If he is more than 50kg, eat him. Else you will let him go. The pig is 30kg. Fill up the code and: Return true if you eat the pig. Return false if you let him go.', contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        String x = "Hello ";\n        String y = "World!";\n        System.out.println(x+y);\n    }\n}'}
             ],
             firebaseUrl: "https://codetranslate-2019.firebaseio.com/"
         }
@@ -288,10 +284,8 @@ export default {
         },
         editorInit: function () {
             require('brace/ext/language_tools') //language extension prerequsite...            
-            require('brace/mode/javascript')    //language
             require('brace/mode/java')
             require('brace/mode/python')
-            require('brace/mode/c_cpp') 
             require('brace/theme/chrome')
             require('brace/snippets/javascript') //snippet
         },

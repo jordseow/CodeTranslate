@@ -2,7 +2,8 @@ import Vue from "vue";
 import Router from "vue-router";
 
 import Home from "@/components/Home";
-import Unit from "@/components/Unit";
+import UnitOne from "@/components/UnitOne";
+import UnitTwo from "@/components/UnitTwo";
 import Landing from "@/components/Landing";
 import PressRelease from "@/components/PressRelease";
 import AboutUs from "@/components/AboutUs";
@@ -29,9 +30,14 @@ const router = new Router({
       component: Home
     },
     {
-      path: "/unit/:code",
-      name: "Unit",
-      component: Unit
+      path: "/unitone",
+      name: "UnitOne",
+      component: UnitOne
+    },
+    {
+      path: "/unittwo",
+      name: "UnitTwo",
+      component: UnitTwo
     },
     {
       path: "/pressrelease",

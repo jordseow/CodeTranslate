@@ -14,11 +14,8 @@
             <d-nav-item href="resources">Resources</d-nav-item>
             <d-dropdown text="Get Started" is-nav>
               <d-dropdown-item href="home">View all modules</d-dropdown-item>
-              <d-dropdown-item href="unit/11">Module 1: Print Statements and Commenting</d-dropdown-item>
-              <d-dropdown-item href="unit/12">Module 2: Declaring Variables</d-dropdown-item>
-              <d-dropdown-item href="unit/13">Module 3: If-Else Statements</d-dropdown-item>
-              <d-dropdown-item href="unit/14">Module 4: While Statements</d-dropdown-item>
-              <d-dropdown-item href="unit/15">Module 5: For Statements</d-dropdown-item>
+              <d-dropdown-item href="unitone">Module 1: Print Statements and Commenting</d-dropdown-item>
+              <d-dropdown-item href="unittwo">Module 2: Declaring Variables</d-dropdown-item>
             </d-dropdown>
             <d-nav-item href="pressrelease">Press Release</d-nav-item>
             <d-nav-item href="faq">FAQ</d-nav-item>
@@ -35,7 +32,7 @@
               onClick="location='home'"
               type="button"
               class="btn btn-lily btn-rounded"
-              style="height:70px; width:250px"
+              style="height:90px; width:300px"
             >Get Started</button>
           </div>
         </div>
