@@ -23,12 +23,12 @@
             <div class="chats">
                 <div class="row msg" v-for="chatLog in chatLogs">
                     <div class="col-3">
-                        <p class="m-0">{{chatLog.time}}</p>
-                        <p>{{chatLog.name}}</p>
+                        <p style="color:black" class="m-0">{{chatLog.time}}</p>
+                        <p style="color:black">{{chatLog.name}}</p>
                     </div>
                     <div class="col-8">
-                        <p>
-                           {{chatLog.comment}}
+                        <p style="color:black">
+                           <strong>{{chatLog.comment}}</strong>
                         </p>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
             <d-input-group class="px-2 mb-1">
               <d-form-input size="lg" type="text" v-model="chatComment"></d-form-input>
               <d-form-input size="lg" type="text" v-model="chatName"></d-form-input>
-              <d-button @click="insert_chat" outline squared theme="dark" size="lg" class="ml-2">Enter</d-button>
+              <d-button @click="insert_chat" theme="primary" size="lg" class="ml-2">Enter</d-button>
             </d-input-group>                
               
               
@@ -324,7 +324,7 @@ export default {
             this.logs = data;
         },
         fetch_chat_logs: async function() {
-            let response = await fetch("https://week9testboon.firebaseio.com/chat.json");
+            let response = await fetch("https://codetranslate-2019.firebaseio.com/chat.json");
             let data = await response.json();
             this.chatLogs = data;
         },
@@ -345,7 +345,7 @@ export default {
         },
         insert_chat_event: function(event) {
             console.log("Logging event.");
-            fetch ("https://week9testboon.firebaseio.com/chat.json", {
+            fetch ("https://codetranslate-2019.firebaseio.com/chat.json", {
                 method: "post",
                 body: JSON.stringify(event)
             })
