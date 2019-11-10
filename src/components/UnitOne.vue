@@ -131,7 +131,7 @@
                          <span v-if="isComplete(currentTask)" class="font-weight-bold" style="color:green">
                             Great Job!
                         </span>
-                        <span v-else-if="tryCount != 0" class="font-weight-bold" style="color:red">
+                        <span v-else-if="tryCount !== 0" class="font-weight-bold" style="color:red">
                             Try Again!
                         </span>
                     </div>
@@ -236,27 +236,37 @@ export default {
                         , contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        // Your code here\n    }\n}'
                         , contentpython: ''
                         , hintsjava:'System.out.println("") is used to print'
-                        , hintspython:'print("") is used to print'},
+                        , hintspython:'print("") is used to print'
+                        , solutionjava: ''
+                        , solutionpython: '' },
                 {task: 'Because you are Mr Wolf, the first little pig refused to open the door. Comment out the wrong reply.'
                         , contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        System.out.println("No, no, by the hair on my chinny chin chin");\n        System.out.println("Welcome in, Mr Wolf!");\n    }\n}'
                         , contentpython: 'print("No, no, by the hair on my chinny chin chin")\nprint("Welcome in, Mr Wolf!")'
                         , hintsjava:'You use // for line comment in Java'
-                        , hintspython:'You use # to comment in Python' },
+                        , hintspython:'You use # to comment in Python'
+                        , solutionjava: ''
+                        , solutionpython: '' },
                 {task: 'You know that you can easily blow the straw house down in 3 huffs and puffs. You gave the first little pig a warning... Change the editable code block so that it prints out the correct number of huffs and puffs.'
                         , contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        int numberOfHuffsPuffs;\n        System.out.println("Open the door now or I will huff and puff " \n                + numberOfHuffsPuffs \n                + " times and blow your house in!");\n    }\n}'
                         , contentpython: '# Uncomment the line below and assign an appropriate value to the variable\n# number_of_huffs_puffs = \nprint("Open the door now or I will huff and puff " + number_of_huffs_puffs + " times and blow your house in!")'
                         , hintsjava:'You have to indicate the data type before the variable name (e.g. int, boolean, String, double)'
-                        , hintspython:'You can declare the variable without having to indicate the data type'},
+                        , hintspython:'You can declare the variable without having to indicate the data type'
+                        , solutionjava: ''
+                        , solutionpython: '' },
                 {task: 'You decided to wait 5 minutes before making your next move. Edit the java code below so that: If the door is closed after 5 mins, print "I am blowing your house in!" Else eat the first little pig by printing "I will eat you now!"'
                         , contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        // Do not edit code here\n        boolean doorClosed = true;\n\n        // After 5 minutes\n        // Edit code below\n        if () {\n            //\n        } else {\n            //\n        }\n    }\n}'
                         , contentpython: 'door_closed = True\n\n# After 5 minutes\n# Edit code below\nif :\n    #\nelse:\n    #'
                         , hintsjava:'Use "if (somecondition) { }" and "else { }"'
-                        , hintspython:'Use "if somecondition:" and "else:"'},
+                        , hintspython:'Use "if somecondition:" and "else:"'
+                        , solutionjava: ''
+                        , solutionpython: '' },
                 {task: 'After blowing the house down, you see the first little pig curled up in the corner, helpless. Being the softhearted Mr Wolf you are, you decided that you would only: If he is more than 50kg, eat him. Else you will let him go. The pig is 30kg. Fill up the code and: Return true if you eat the pig. Return false if you let him go.'
                         , contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        int weight;\n        boolean letGo;\n        if (weight > ) {\n            letGo = ;\n        } else {\n            letGo = ;\n        }\n        System.out.println(letGo);\n    }\n}'
                         , contentpython: 'weight =\nletGo = False\nif weight < :\n    letGo = \nprint(letGo)'
                         , hintsjava:'Use "if (somecondition) { }" and "else { }"'
-                        , hintspython:'Use "if somecondition:" and "else:"'}
+                        , hintspython:'Use "if somecondition:" and "else:"'
+                        , solutionjava: ''
+                        , solutionpython: '' },
             ],
             firebaseUrl: "https://codetranslate-2019.firebaseio.com/"
         }
@@ -268,13 +278,23 @@ export default {
         postContents: function () {
             // comment: leaving the gatewayUrl empty - API will post back to itself
             const gatewayUrl = 'https://z1xebr7htc.execute-api.us-east-1.amazonaws.com/default/codeTranslateLambda';
+            let content = "";
+            let answer = "";
+            if (this.translateTo === 'java') {
+                content = this.layoutItems[this.currentTask-1].contentjava;
+                answer = this.layoutItems[this.currentTask-1].solutionjava;
+            }
+            else {
+                content = this.layoutItems[this.currentTask-1].contentpython;
+                answer = this.layoutItems[this.currentTask-1].solutionpython;
+            }
             fetch(gatewayUrl, {
                 method: "POST",
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ shown: { 0: this.solutions[this.currentTask] }, editable: { 0: this.layoutItems[this.currentTask-1].content } })
+                body: JSON.stringify({ shown: { 0: answer }, editable: { 0: content } })
             }).then(response => {
                 return response.json()
             }).then(data => {
@@ -330,7 +350,8 @@ export default {
         },
         reset(){
             this.correct[this.currentTask] = false
-            this.content[this.currentTask] = this.defaultContent[this.currentTask]
+            //CHANGE THIS PART
+            //this.content[this.currentTask] = this.defaultContent[this.currentTask]
             this.tryCount = 0
         },
         insert_chat: function(){

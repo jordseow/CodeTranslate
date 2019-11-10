@@ -350,7 +350,8 @@ export default {
         },
         reset(){
             this.correct[this.currentTask] = false
-            this.content[this.currentTask] = this.defaultContent[this.currentTask]
+            //CHANGE THIS PART
+            //this.content[this.currentTask] = this.defaultContent[this.currentTask]
             this.tryCount = 0
         },
         insert_chat: function(){
