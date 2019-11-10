@@ -318,19 +318,6 @@ export default {
         isComplete: function(task) {
             return this.correct[task];
         },
-        check: function() {
-            tryCount++;
-            if (
-                this.content[this.currentTask] === this.solutions[this.currentTask]
-            ) {
-                this.correct[this.currentTask] = true;
-                this.log_event({ event: "correct", question: this.currentTask });
-            } else {
-                this.correct[this.currentTask] = false;
-                this.log_event({ event: "incorrect", question: this.currentTask });
-            }
-            this.fetch_logs();
-        },
         fetch_logs: async function() {
             let response = await fetch(this.firebaseUrl + "/logs.json");
             let data = await response.json();
@@ -347,7 +334,14 @@ export default {
             tryCount = 0
         },
         insert_chat: function(){
-            this.insert_chat_event({name: this.chatName, comment: this.chatComment, time: this.timeStamp});
+            if (
+                //do not insert rubbish comment
+                !this.chatComment.includes("Comment")
+            ) {
+                this.insert_chat_event({name: this.chatName, comment: this.chatComment, time: this.timeStamp});
+                this.chatName = "Insert Username";
+                this.chatComment = "Insert Comment";
+            }
         },
         insert_chat_event: function(event) {
             console.log("Logging event.");
@@ -388,8 +382,8 @@ export default {
             });
             let result = await response.json();
             console.log(result);
-          },
-          restore_progress: async function() {
+        },
+        restore_progress: async function() {
             let progressUrl =
               this.firebaseUrl + "/progress/" + this.userkey + ".json";
             let response = await fetch(progressUrl);
@@ -397,8 +391,8 @@ export default {
 
             this.content = data.content;
             this.correct = data.correct;
-          },
-          getNow: function() {
+        },
+        getNow: function() {
             let today = new Date();
             let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
             let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();

@@ -21,32 +21,24 @@
             <a @click="closeDiscussionArea" href="#" class="close-icon m-2"></a>
             <span class="triangle-bottom-right"></span>
             <div class="chats">
-                <div class="row msg" v-for="(index) in 10" :key="index">
+                <div class="row msg" v-for="chatLog in chatLogs">
                     <div class="col-3">
-                        <p class="m-0">23/9/19 5.23 pm</p>
-                        <p>User #312359</p>
+                        <p class="m-0">{{chatLog.time}}</p>
+                        <p>{{chatLog.name}}</p>
                     </div>
                     <div class="col-8">
                         <p>
-                            Hello all! My code is not compiling. I’m translating from Python
-                         to Java.. Is anyone facing the same problem?
-                            <pre>
-                                class Node{
-                                    head;
-                                    data;
-                                    ..
-                                }
-                            </pre>
+                           {{chatLog.comment}}
                         </p>
                     </div>
                 </div>
             </div>
             <div class="sender">
             <d-input-group class="px-2 mb-1">
-              <d-form-input size="lg" type="text" placeholder="Enter message"></d-form-input>
-              <d-form-input size="lg" type="text" placeholder="Enter Username(optional)"></d-form-input>
-              <d-button outline squared theme="dark" size="lg" class="ml-2">Enter</d-button>
-            </d-input-group>                
+              <d-form-input size="lg" type="text" v-model="chatComment"></d-form-input>
+              <d-form-input size="lg" type="text" v-model="chatName"></d-form-input>
+              <d-button @click="insert_chat" outline squared theme="dark" size="lg" class="ml-2">Enter</d-button>
+            </d-input-group> 
               
               
             </div>
@@ -174,7 +166,11 @@ export default {
     data: function() {
         return {
             logs: {},
+            chatLogs: {},
+            chatName: "Insert Username",
+            chatComment: "Insert Comment",
             userkey: "",
+            timeStamp: "",
             topic: {
                 11: "Print Statements and Commenting",
                 12: "Declaring Variables",
@@ -322,28 +318,43 @@ export default {
         isComplete: function(task) {
             return this.correct[task];
         },
-        check: function() {
-            tryCount++;
-            if (
-                this.content[this.currentTask] === this.solutions[this.currentTask]
-            ) {
-                this.correct[this.currentTask] = true;
-                this.log_event({ event: "correct", question: this.currentTask });
-            } else {
-                this.correct[this.currentTask] = false;
-                this.log_event({ event: "incorrect", question: this.currentTask });
-            }
-            this.fetch_logs();
-        },
         fetch_logs: async function() {
             let response = await fetch(this.firebaseUrl + "/logs.json");
             let data = await response.json();
             this.logs = data;
         },
+        fetch_chat_logs: async function() {
+            let response = await fetch("https://week9testboon.firebaseio.com/chat.json");
+            let data = await response.json();
+            this.chatLogs = data;
+        },
         reset(){
             this.correct[this.currentTask] = false
             this.content[this.currentTask] = this.defaultContent[this.currentTask]
             tryCount = 0
+        },
+        insert_chat: function(){
+            if (
+                //do not insert rubbish comment
+                !this.chatComment.includes("Comment")
+            ) {
+                this.insert_chat_event({name: this.chatName, comment: this.chatComment, time: this.timeStamp});
+                this.chatName = "Insert Username";
+                this.chatComment = "Insert Comment";
+            }
+        },
+        insert_chat_event: function(event) {
+            console.log("Logging event.");
+            fetch ("https://week9testboon.firebaseio.com/chat.json", {
+                method: "post",
+                body: JSON.stringify(event)
+            })
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    console.log("Logged event", data);
+                });
         },
         log_event: function(event) {
             console.log("Logging event.");
@@ -371,8 +382,8 @@ export default {
             });
             let result = await response.json();
             console.log(result);
-          },
-          restore_progress: async function() {
+        },
+        restore_progress: async function() {
             let progressUrl =
               this.firebaseUrl + "/progress/" + this.userkey + ".json";
             let response = await fetch(progressUrl);
@@ -380,10 +391,25 @@ export default {
 
             this.content = data.content;
             this.correct = data.correct;
-          },
+        },
+        getNow: function() {
+            let today = new Date();
+            let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+            let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            let dateTime = date +' '+ time;
+            this.timeStamp = dateTime;
+        },
     },
     created() {
         this.getUnit()
+        setInterval(this.getNow, 1000);
+    },
+    mounted: function () {
+        this.$nextTick(function () {
+            window.setInterval(() => {
+                this.fetch_chat_logs();
+            },1000);
+        })
     },
 }
 </script>
