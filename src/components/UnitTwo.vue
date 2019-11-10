@@ -287,18 +287,18 @@ export default {
             })
         },
         toggleQuestionStatus(data) {
-                if (data.textFeedback) {
-                    const searchText = data.textFeedback
-                    if (searchText.includes("You got the answer")) {
-                        this.correct[this.currentTask] = true;
-                        this.log_event({ event: "correct", question: this.currentTask });   
-                    }
-                    else if (searchText.includes("You have missed")){
-                        this.correct[this.currentTask] = false;
-                        this.log_event({ event: "incorrect", question: this.currentTask });
-                    }
-                    this.fetch_logs();
+            tryCount++;
+            if (data.textFeedback) {
+                const searchText = data.textFeedback
+                if (searchText.includes("You got the answer")) {
+                    this.correct[this.currentTask] = true;
+                    this.log_event({ event: "correct", question: this.currentTask });   
                 }
+                else if (searchText.includes("You have missed")){
+                    this.correct[this.currentTask] = false;
+                    this.log_event({ event: "incorrect", question: this.currentTask });
+                }
+            }
         },
         getUnit(){
             this.unitCode = this.$route.params.code      
