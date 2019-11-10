@@ -131,7 +131,7 @@
                          <span v-if="isComplete(currentTask)" class="font-weight-bold" style="color:green">
                             Great Job!
                         </span>
-                        <span v-else-if="!isComplete(currentTask) && tryCount != 0" class="font-weight-bold" style="color:red">
+                        <span v-else-if="tryCount != 0" class="font-weight-bold" style="color:red">
                             Try Again!
                         </span>
                     </div>
@@ -283,7 +283,7 @@ export default {
             })
         },
         toggleQuestionStatus(data) {
-            tryCount++;
+            this.tryCount++;
             if (data.textFeedback) {
                 const searchText = data.textFeedback
                 if (searchText.includes("You got the answer")) {
@@ -331,7 +331,7 @@ export default {
         reset(){
             this.correct[this.currentTask] = false
             this.content[this.currentTask] = this.defaultContent[this.currentTask]
-            tryCount = 0
+            this.tryCount = 0
         },
         insert_chat: function(){
             if (
