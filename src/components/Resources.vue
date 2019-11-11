@@ -1,30 +1,28 @@
 <template>
   <v-container>
     <d-navbar toggleable="md" type="dark" class="pb-5">
-        <d-navbar-toggle target="nav-collapse"></d-navbar-toggle>
-        <d-navbar-brand>
-            
-            <img class="pr-5 pt-2"
-                src="@/assets/codetranslatelogo.png"
-                height="80"
-              />
-          <!-- <h6 class="text-white my-auto mr-4">CodeTranslate</h6> -->
-        </d-navbar-brand>
+      <d-navbar-toggle target="nav-collapse"></d-navbar-toggle>
+      <d-navbar-brand>
+        <img class="pr-5 pt-2" src="@/assets/codetranslatelogo.png" height="80" />
+        <!-- <h6 class="text-white my-auto mr-4">CodeTranslate</h6> -->
+      </d-navbar-brand>
 
-        <d-collapse is-nav id="nav-collapse">
-          <d-navbar-nav>
-            <d-nav-item href="aboutus">About Us</d-nav-item>
-            <d-nav-item href="resources">Resources</d-nav-item>
-            <d-dropdown text="Get Started" is-nav>
-              <d-dropdown-item href="home">View all modules</d-dropdown-item>
-              <d-dropdown-item href="unitone">Module 1: Printing, Commenting, Declaring Variables and If-Else</d-dropdown-item>
-              <d-dropdown-item href="unittwo">Module 2: While and For Loops</d-dropdown-item>
-            </d-dropdown>
-            <d-nav-item href="pressrelease">Press Release</d-nav-item>
-            <d-nav-item href="faq">FAQ</d-nav-item>
-          </d-navbar-nav>
-        </d-collapse>
-      </d-navbar>
+      <d-collapse is-nav id="nav-collapse">
+        <d-navbar-nav>
+          <d-nav-item href="aboutus">About Us</d-nav-item>
+          <d-nav-item href="resources">Resources</d-nav-item>
+          <d-dropdown text="Get Started" is-nav>
+            <d-dropdown-item href="home">View all modules</d-dropdown-item>
+            <d-dropdown-item
+              href="unitone"
+            >Module 1: Printing, Commenting, Declaring Variables and If-Else</d-dropdown-item>
+            <d-dropdown-item href="unittwo">Module 2: While and For Loops</d-dropdown-item>
+          </d-dropdown>
+          <d-nav-item href="pressrelease">Press Release</d-nav-item>
+          <d-nav-item href="faq">FAQ</d-nav-item>
+        </d-navbar-nav>
+      </d-collapse>
+    </d-navbar>
     <div class="float-left pl-5">
       <router-link to="/landing">
         <d-button size="lg" class="font-weight-bold" theme="warning">Home</d-button>
@@ -43,10 +41,7 @@
             allowfullscreen
           ></iframe>
           <h2 class="h1-responsive font-weight-bold my-5 pt-5">Summary</h2>
-          <img
-            class="pb-5"
-            src="@/assets/python-java-syntax.png"
-          />
+          <img class="pb-5" src="@/assets/python-java-syntax.png" />
         </div>
       </v-layout>
     </d-container>

@@ -1,30 +1,27 @@
 <template>
   <v-container>
-   <d-navbar toggleable="md" type="dark" class="pb-5">
-        <d-navbar-toggle target="nav-collapse"></d-navbar-toggle>
-        <d-navbar-brand>
-            
-            <img class="pr-5 pt-2"
-                src="@/assets/codetranslatelogo.png"
-                height="80"
-              />
-          <!-- <h6 class="text-white my-auto mr-4">CodeTranslate</h6> -->
-        </d-navbar-brand>
+    <d-navbar toggleable="md" type="dark" class="pb-5">
+      <d-navbar-toggle target="nav-collapse"></d-navbar-toggle>
+      <d-navbar-brand>
+        <img class="pr-5 pt-2" src="@/assets/codetranslatelogo.png" height="80" />
+      </d-navbar-brand>
 
-        <d-collapse is-nav id="nav-collapse">
-          <d-navbar-nav>
-            <d-nav-item href="aboutus">About Us</d-nav-item>
-            <d-nav-item href="resources">Resources</d-nav-item>
-            <d-dropdown text="Get Started" is-nav>
-              <d-dropdown-item href="home">View all modules</d-dropdown-item>
-              <d-dropdown-item href="unitone">Module 1: Printing, Commenting, Declaring Variables and If-Else</d-dropdown-item>
-              <d-dropdown-item href="unittwo">Module 2: While and For Loops</d-dropdown-item>
-            </d-dropdown>
-            <d-nav-item href="pressrelease">Press Release</d-nav-item>
-            <d-nav-item href="faq">FAQ</d-nav-item>
-          </d-navbar-nav>
-        </d-collapse>
-      </d-navbar>
+      <d-collapse is-nav id="nav-collapse">
+        <d-navbar-nav>
+          <d-nav-item href="aboutus">About Us</d-nav-item>
+          <d-nav-item href="resources">Resources</d-nav-item>
+          <d-dropdown text="Get Started" is-nav>
+            <d-dropdown-item href="home">View all modules</d-dropdown-item>
+            <d-dropdown-item
+              href="unitone"
+            >Module 1: Printing, Commenting, Declaring Variables and If-Else</d-dropdown-item>
+            <d-dropdown-item href="unittwo">Module 2: While and For Loops</d-dropdown-item>
+          </d-dropdown>
+          <d-nav-item href="pressrelease">Press Release</d-nav-item>
+          <d-nav-item href="faq">FAQ</d-nav-item>
+        </d-navbar-nav>
+      </d-collapse>
+    </d-navbar>
     <div class="float-left pl-5">
       <router-link to="/landing">
         <d-button size="lg" class="font-weight-bold" theme="warning">Home</d-button>
@@ -47,9 +44,6 @@
             </div>
             <h5 class="font-weight-bold mt-4 mb-3">Lee Boon Howe</h5>
             <p class="text-uppercase" style="color:black">Y4 Business Analytics</p>
-            <!-- <p
-              style="color:black"
-            ><strong>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci sed quia non numquam modi tempora eius.</strong></p>-->
           </mdb-col>
           <mdb-col lg="3" md="6" class="mb-lg-0 mb-5">
             <img
@@ -60,9 +54,6 @@
 
             <h5 class="font-weight-bold mt-4 mb-3">Dylan See</h5>
             <p class="text-uppercase" style="color:black">Y2 Business Analytics</p>
-            <!-- <p
-              style="color:black"
-            ><strong>Sed ut perspiciatis unde omnis iste natus error sit voluptatem ipsa accusantium doloremque rem laudantium totam aperiam.</strong></p>-->
           </mdb-col>
           <mdb-col lg="3" md="6" class="mb-lg-0 mb-5">
             <img
@@ -73,9 +64,6 @@
 
             <h5 class="font-weight-bold mt-4 mb-3">Joshua Wang</h5>
             <p class="text-uppercase" style="color:black">Y4 Business Analytics</p>
-            <!-- <p
-              style="color:black"
-            ><strong>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim est fugiat nulla id eu laborum.</strong></p>-->
           </mdb-col>
           <mdb-col lg="3" md="6" class="mb-lg-0 mb-5">
             <img
@@ -85,7 +73,6 @@
             />
             <h5 class="font-weight-bold mt-4 mb-3">Jordan Seow</h5>
             <p class="text-uppercase" style="color:black">Y2 Business Analytics</p>
-            <!-- <p style="color:black"><strong>Perspiciatis repellendus ad odit consequuntur, eveniet earum nisi qui consectetur totam officia voluptates perferendis voluptatibus aut.</strong></p> -->
           </mdb-col>
         </mdb-row>
       </section>

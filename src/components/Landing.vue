@@ -5,7 +5,6 @@
         <d-navbar-toggle target="nav-collapse"></d-navbar-toggle>
         <d-navbar-brand>
           <img class="pr-5 pt-2" src="@/assets/codetranslatelogo.png" height="80" />
-          <!-- <h6 class="text-white my-auto mr-4">CodeTranslate</h6> -->
         </d-navbar-brand>
 
         <d-collapse is-nav id="nav-collapse">
@@ -14,7 +13,9 @@
             <d-nav-item href="resources">Resources</d-nav-item>
             <d-dropdown text="Get Started" is-nav>
               <d-dropdown-item href="home">View all modules</d-dropdown-item>
-              <d-dropdown-item href="unitone">Module 1: Printing, Commenting, Declaring Variables and If-Else</d-dropdown-item>
+              <d-dropdown-item
+                href="unitone"
+              >Module 1: Printing, Commenting, Declaring Variables and If-Else</d-dropdown-item>
               <d-dropdown-item href="unittwo">Module 2: While and For Loops</d-dropdown-item>
             </d-dropdown>
             <d-nav-item href="pressrelease">Press Release</d-nav-item>
@@ -69,9 +70,9 @@
                 <h7>Year 2 Business Analytics Undergraduate</h7>
                 <hr />
                 <!--Quotation-->
-                <p class="dark-grey-text mt-4 font-italic">
-                  "I can still remember how much I struggled in the first 2 weeks of school when I first took CS2040. The transition from Python to Java was not easy and having such a platform which focuses on syntax would be helpful for students like me. I believe that future batches of undergraduates would be able to learn much more efficiently through the app."
-                </p>
+                <p
+                  class="dark-grey-text mt-4 font-italic"
+                >"I can still remember how much I struggled in the first 2 weeks of school when I first took CS2040. The transition from Python to Java was not easy and having such a platform which focuses on syntax would be helpful for students like me. I believe that future batches of undergraduates would be able to learn much more efficiently through the app."</p>
               </div>
             </div>
             <!--Card-->
@@ -103,12 +104,13 @@
                 <h4 class="font-weight-bold mb-4">Chan Cheah Cha</h4>
                 <h7>Year 2 Business Analytics Undergraduate</h7>
                 <div>
-                <h7>(former Life Science Undergraduate)</h7></div>
+                  <h7>(former Life Science Undergraduate)</h7>
+                </div>
                 <hr />
                 <!--Quotation-->
-                <p class="dark-grey-text mt-4 font-italic">
-                  "The past semester was tough for me as I had to learn several programming languages at the same time. With this app, I would have been able to revise on the differences in syntax for the different languages; I would not have to spend so much time on Google!"
-                </p>
+                <p
+                  class="dark-grey-text mt-4 font-italic"
+                >"The past semester was tough for me as I had to learn several programming languages at the same time. With this app, I would have been able to revise on the differences in syntax for the different languages; I would not have to spend so much time on Google!"</p>
               </div>
             </div>
             <!--Card-->
@@ -139,9 +141,9 @@
                 <h7>Year 2 Computer Science Undergraduate</h7>
                 <hr />
                 <!--Quotation-->
-                <p class="dark-grey-text mt-4 font-italic">
-                  "Though I have only learnt JavaScript and Java in school so far, I had to pick up Python during my internship. I have spent a lot of time debugging basic syntax mistakes and it would have been great if this app was introduced to me earlier. It is a one-stop learning platform for students to focus on learning the syntaxes of different languages."
-                </p>
+                <p
+                  class="dark-grey-text mt-4 font-italic"
+                >"Though I have only learnt JavaScript and Java in school so far, I had to pick up Python during my internship. I have spent a lot of time debugging basic syntax mistakes and it would have been great if this app was introduced to me earlier. It is a one-stop learning platform for students to focus on learning the syntaxes of different languages."</p>
               </div>
             </div>
             <!--Card-->

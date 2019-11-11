@@ -19,16 +19,20 @@
           <d-card class="mb-5 shadow-lg">
             <router-link :to="'/unitone'">
               <d-card-footer class="clearfix">
-                <h4
-                  class="float-left"
-                >Module 1: <strong>Printing, Commenting, Declaring Variables and If-Else</strong></h4>
+                <h4 class="float-left">
+                  Module 1:
+                  <strong>Printing, Commenting, Declaring Variables and If-Else</strong>
+                </h4>
               </d-card-footer>
             </router-link>
           </d-card>
           <d-card class="mb-5 shadow-lg">
             <router-link :to="'/unittwo'">
               <d-card-footer class="clearfix">
-                <h4 class="float-left">Module 2: <strong>While and For Loops</strong></h4>
+                <h4 class="float-left">
+                  Module 2:
+                  <strong>While and For Loops</strong>
+                </h4>
               </d-card-footer>
             </router-link>
           </d-card>
