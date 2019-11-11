@@ -73,12 +73,6 @@
     <d-row class="mt-5 pb-5">
         <d-col class="col-5">
             <d-row>
-                <!-- <d-col>
-                    <h5><strong>Question</strong></h5>
-                    <d-input-group class="mb-2">
-                    <d-form-select v-model="translateFrom" :options="languages" />
-                    </d-input-group>
-                </d-col> -->
                 <d-col class="col-5">
                     <h5><strong>Input Language</strong></h5>
                     <d-input-group class="mb-2">
@@ -131,8 +125,10 @@
                          <span v-if="isComplete(currentTask)" class="font-weight-bold" style="color:green">
                             Great Job!
                         </span>
-                        <span v-else-if="tryCount != 0" class="font-weight-bold" style="color:red">
+                        <span v-else-if="this.tryCount[currentTask-1] != 0" class="font-weight-bold" style="color:red">
                             Try Again!
+                        </span>
+                        <span v-else-if="this.tryCount[currentTask-1] === 0">
                         </span>
                     </div>
                 </b-card>
@@ -178,7 +174,7 @@ export default {
                 14: "While Statements",
                 15: "For Statements"
             },
-            tryCount: 0,
+            tryCount: [0, 0, 0, 0, 0],
             unitCode: '',
             questions: [1,2,3,4,5],
             translateFrom: 'python',
@@ -227,10 +223,43 @@ export default {
                 { value: 'java', text: 'Java' },
                 { value: 'python', text: 'Python' },
             ],
-            // starterCode: {
-            //     "java": "public class Main {    \n    public static void main(String[] args) {\n        // Your code here\n    }\n}",
-            //     "python": "print(#Your code here)",
-            // },
+            defaultLayoutItems: [
+                {task: 'After letting the first little pig go, he ran to find his brother, the second little pig. Feeling hungry, you decided to go find the second little pig. The second little pig had built a house of straw. "Little pigs, little pigs, let me in". The house of straw will take you 10 huffs and puffs to blow it down. Use a while loop to blow the house down, after each blow you will shout "Huff and Puff!".' 
+                        , contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        int numberOfHuffsPuffs = ;\n        while (numberOfHuffsPuffs < ) {\n            System.out.println();\n            numberOfHuffsPuffs;\n        }\n    }\n}'
+                        , contentpython: 'number_of_huffs_puffs = \nwhile (number_of_huffs_puffs < ):\n    print()\n    number_of_huffs_puffs'
+                        , hintsjava:'Use "while (somecondition { }" and you can use the shorthand variable++ which is the same as variable += 1'
+                        , hintspython:'"Use while (somecondition):"'
+                        , solutionjava:'public class Main {    \n    public static void main(String[] args) {\n        int numberOfHuffsPuffs = 0;\n        while (numberOfHuffsPuffs < 10) {\n            System.out.println("Huff and Puff!");\n            numberOfHuffsPuffs++;\n        }\n    }\n}'
+                        , solutionpython:""},
+                {task: 'Surprisingly, the second little pig managed to reinforce the house of straw with mud! It was still upright after 10 huffs and puffs. Angry and hungry, you decided to throw rocks at the door. You do not know how many rocks it takes to break the door. You will run out of energy after throwing 20 rocks. When you are out of energy, you will say "I\'m tired...".'
+                        , contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        int numberOfRocksThrown = ;\n        while (numberOfRocksThrown < ) {\n            numberOfRocksThrown;\n        }\n        System.out.println();\n    }\n}' 
+                        , contentpython: 'number_of_rocks_thrown = \nwhile (number_of_rocks_thrown < ):\n    number_of_rocks_thrown\nprint()'
+                        , hintsjava:'Use "while (somecondition { }" and you can use the shorthand variable++ which is the same as variable += 1'
+                        , hintspython:'"Use while (somecondition):"'
+                        , solutionjava:'public class Main {    \n    public static void main(String[] args) {\n        int numberOfRocksThrown = 0;\n        while (numberOfRocksThrown < 20) {\n            numberOfRocksThrown++;\n        }\n        System.out.println("I\'m tired...");\n    }\n}'
+                        , solutionpython:""},
+                {task: 'While you were resting outside the straw house, the 2 little pigs escaped to find their older brother, the third little pig. The next morning, you made your way to the third little pig\'s house, which is made of bricks. You decided to knock on the door 10 times, producing a "Bang!" with each knock.'
+                        , contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        int i;\n        for (i = ; i < ; i) {\n            System.out.println();\n        }\n    }\n}'
+                        , contentpython: 'for i in range( , ):\n    print()'
+                        , hintsjava:'for (initialisation; condition; iteration)'
+                        , hintspython:'for i in range(start, stop, step):'
+                        , solutionjava:'public class Main {    \n    public static void main(String[] args) {\n        int i;\n        for (i = 0; i < 10; i++) {\n            System.out.println("Bang!");\n        }\n    }\n}'
+                        , solutionpython:""},
+                {task: 'There was no reply. Are the pigs in the brick house? You decided to count the number of pairs of shoes outside the house to see if all the pigs are in. Mr Wolf is bad with counting, he has to count it out loud. Complete the code to count out the numbers from 1 to 3.'
+                        , contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        int numberOfShoes = 1;\n        int i;\n        for (i = ; i < ; i) {\n            System.out.println();\n            numberOfShoes;\n        }\n    }\n}'
+                        , contentpython: 'number_of_shoes = 1\nfor i in range( , ):\n    print()\n    number_of_shoes'
+                        , hintsjava:'for (initialisation; condition; iteration), also in Java you can use the shorthand variable++ which is the same as variable += 1'
+                        , hintspython:'for i in range(start, stop, step):'
+                        , solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        int numberOfShoes = 1;\n        int i;\n        for (i = 0; i < 3; i++) {\n            System.out.println(numberOfShoes);\n            numberOfShoes++;\n        }\n    }\n}'
+                        , solutionpython:""},
+                {task: 'Bingo! All of them are in the house and they are probably still sound asleep. Though you are bad with counting, you are good with locks! You broke the lock of the door. You can\'t wait to start your feast! You will take 3 big bites to completely devour a pig, saying "Yummy!" with each bite. After finishing up each pig, you will celebrate with your paws up in the air and exclaiming "One down!". Complete the code to see what Mr Wolf said when he finished eating 3 pigs.'
+                        , contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        int numberOfPigs = 3;\n        int numberOfBites = 3;\n        for (int i = ; i < ; i) {\n            for (int j = ; j < ; j) {\n                System.out.println();\n            }\n            System.out.println();\n        }\n    }\n}'
+                        , contentpython: 'number_of_pigs = 3\nnumber_of_bites = 3\nfor i in range( , ):\n    for j in range( , ):\n        print()\n    print()'
+                        , hintsjava:'for (initialisation; condition; iteration)'
+                        , hintspython:'for i in range(start, stop, step):'
+                        , solutionjava:'public class Main {    \n    public static void main(String[] args) {\n        int numberOfPigs = 3;\n        int numberOfBites = 3;\n        for (int i = 0; i < numberOfPigs; i++) {\n            for (int j = 0; j < numberOfBites; j++) {\n                System.out.println("Yummy!");\n            }\n            System.out.println("One down!");\n        }\n    }\n}'
+                        , solutionpython:""},
+            ],
             layoutItems: [
                 {task: 'After letting the first little pig go, he ran to find his brother, the second little pig. Feeling hungry, you decided to go find the second little pig. The second little pig had built a house of straw. "Little pigs, little pigs, let me in". The house of straw will take you 10 huffs and puffs to blow it down. Use a while loop to blow the house down, after each blow you will shout "Huff and Puff!".' 
                         , contentjava: 'public class Main {    \n    public static void main(String[] args) {\n        int numberOfHuffsPuffs = ;\n        while (numberOfHuffsPuffs < ) {\n            System.out.println();\n            numberOfHuffsPuffs;\n        }\n    }\n}'
@@ -303,7 +332,7 @@ export default {
             })
         },
         toggleQuestionStatus(data) {
-            this.tryCount++;
+            this.tryCount[this.currentTask-1]++;
             if (data.textFeedback) {
                 const searchText = data.textFeedback
                 if (searchText.includes("You got the answer")) {
@@ -350,9 +379,13 @@ export default {
         },
         reset(){
             this.correct[this.currentTask] = false
-            //CHANGE THIS PART
-            //this.content[this.currentTask] = this.defaultContent[this.currentTask]
-            this.tryCount = 0
+            if (this.translateTo === 'java') {
+                this.layoutItems[this.currentTask-1].contentjava = this.defaultLayoutItems[this.currentTask-1].contentjava;
+            } else {
+                this.layoutItems[this.currentTask-1].contentpython = this.defaultLayoutItems[this.currentTask-1].contentpython;
+            }
+            this.defaultOutput = "";
+            this.tryCount[currentTask-1] = 0
         },
         insert_chat: function(){
             if (
