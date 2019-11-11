@@ -469,7 +469,6 @@ export default {
           this.currentTask - 1
         ].contentpython;
       }
-      this.defaultOutput = "";
       this.tryCount[currentTask - 1] = 0;
     },
     insert_chat: function() {
