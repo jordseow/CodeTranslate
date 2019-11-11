@@ -294,11 +294,7 @@ export default {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-<<<<<<< HEAD
-                body: JSON.stringify({ shown: { 0: this.solutions[this.currentTask] }, editable: { 0: this.layoutItems[this.currentTask-1].contentjava } })
-=======
                 body: JSON.stringify({ shown: { 0: answer }, editable: { 0: content } })
->>>>>>> 1ae2bcbcec8e9fbccb3f8331d8d10a9b06c42069
             }).then(response => {
                 return response.json()
             }).then(data => {
@@ -354,12 +350,8 @@ export default {
         },
         reset(){
             this.correct[this.currentTask] = false
-<<<<<<< HEAD
-            this.content[this.currentTask] = this.defaultContent[this.currentTask]
-=======
             //CHANGE THIS PART
             //this.content[this.currentTask] = this.defaultContent[this.currentTask]
->>>>>>> 1ae2bcbcec8e9fbccb3f8331d8d10a9b06c42069
             this.tryCount = 0
         },
         insert_chat: function(){
