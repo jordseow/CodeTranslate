@@ -198,13 +198,6 @@ export default {
       chatComment: "Insert Comment",
       userkey: "",
       timeStamp: "",
-      topic: {
-        11: "Print Statements and Commenting",
-        12: "Declaring Variables",
-        13: "If-Else Statements",
-        14: "While Statements",
-        15: "For Statements"
-      },
       tryCount: [0, 0, 0, 0, 0],
       unitCode: "",
       questions: [1, 2, 3, 4, 5],
