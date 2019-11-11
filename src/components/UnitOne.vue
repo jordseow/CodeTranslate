@@ -391,26 +391,42 @@ export default {
                 });
         },
         save_progress: async function() {
-            console.log("Saving progress.");
-            let progressUrl =
-              this.firebaseUrl + "/progress/" + this.userkey + ".json";
-            let response = await fetch(progressUrl, {
-              method: "put",
-              body: JSON.stringify({
-                content: this.content,
-                correct: this.correct
-              })
-            });
-            let result = await response.json();
-            console.log(result);
+            if (this.translateTo === 'java') {
+                console.log("Saving progress.");
+                let progressUrl =
+                this.firebaseUrl + "/progress/" + this.userkey + ".json";
+                let response = await fetch(progressUrl, {
+                    method: "put",
+                    body: JSON.stringify({
+                    contentjava: this.layoutItems[this.currentTask-1].contentjava,
+                    correct: this.correct
+                    })
+                });
+                let result = await response.json();
+                console.log(result);
+            }
+            else {
+                console.log("Saving progress.");
+                let progressUrl =
+                this.firebaseUrl + "/progress/" + this.userkey + ".json";
+                let response = await fetch(progressUrl, {
+                    method: "put",
+                    body: JSON.stringify({
+                        contentpython: this.layoutItems[this.currentTask-1].contentpython,
+                        correct: this.correct
+                    })
+                });
+                let result = await response.json();
+                console.log(result);
+            }
         },
         restore_progress: async function() {
             let progressUrl =
               this.firebaseUrl + "/progress/" + this.userkey + ".json";
             let response = await fetch(progressUrl);
             let data = await response.json();
-
-            this.content = data.content;
+            this.layoutItems[this.currentTask-1].contentjava = data.contentjava;
+            this.layoutItems[this.currentTask-1].contentpython = data.contentpython;
             this.correct = data.correct;
         },
         getNow: function() {
