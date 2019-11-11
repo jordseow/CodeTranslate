@@ -274,7 +274,7 @@ export default {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ shown: { 0: this.solutions[this.currentTask] }, editable: { 0: this.layoutItems[this.currentTask-1].content } })
+                body: JSON.stringify({ shown: { 0: this.solutions[this.currentTask] }, editable: { 0: this.layoutItems[this.currentTask-1].contentjava } })
             }).then(response => {
                 return response.json()
             }).then(data => {
@@ -283,7 +283,7 @@ export default {
             })
         },
         toggleQuestionStatus(data) {
-            tryCount++;
+            this.tryCount++;
             if (data.textFeedback) {
                 const searchText = data.textFeedback
                 if (searchText.includes("You got the answer")) {
@@ -331,7 +331,7 @@ export default {
         reset(){
             this.correct[this.currentTask] = false
             this.content[this.currentTask] = this.defaultContent[this.currentTask]
-            tryCount = 0
+            this.tryCount = 0
         },
         insert_chat: function(){
             if (
