@@ -19,8 +19,8 @@ Parameters:
 Resources:
   LambdaFunc:
     Properties:
-      CodeUri: s3://codetranslate11/2c9d271d9336722022d285a318174e53
-      Description: Vue Testing Suite
+      CodeUri: codetranslate11
+      Description: CodeTranslate
       FunctionName:
         Ref: "LambdaFuncName"
       Events:
