@@ -1,5 +1,6 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description: Jupyter Executor Service.
+Transform: AWS::Serverless-2016-10-31
+Description: AWS API Gateway with a Lambda Integration
 Parameters:
   LambdaFuncName:
     Type: String
@@ -17,9 +18,24 @@ Parameters:
     Type: Number
     Default: 40
 Resources:
+  FunctionRole:
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action:
+              - sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+        - arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
+      Path: /
+    Type: AWS::IAM::Role
   LambdaFunc:
     Properties:
-      CodeUri: codetranslate11
+      CodeUri: ./lambda-deploy.zip
       Description: CodeTranslate
       FunctionName:
         Ref: "LambdaFuncName"
@@ -33,9 +49,12 @@ Resources:
         Ref: "LambdaHandler"
       MemorySize:
         Ref: "LambdaMemory"
+      Role:
+        Fn::GetAtt:
+          - FunctionRole
+          - Arn
       Runtime:
         Ref: "LambdaRuntime"
       Timeout:
         Ref: "LambdaTimeout"
     Type: AWS::Serverless::Function
-Transform: AWS::Serverless-2016-10-31
