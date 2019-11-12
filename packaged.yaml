@@ -1,23 +1,41 @@
-AWSTemplateFormatVersion: '2010-09-09'
-Transform: AWS::Serverless-2016-10-31
-Description: 'sam-app
-
-  Sample SAM Template for sam-app
-
-  '
-Globals:
-  Function:
-    Timeout: 3
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Jupyter Executor Service.
+Parameters:
+  LambdaFuncName:
+    Type: String
+    Default: "pythonTest"
+  LambdaRuntime:
+    Type: String
+    Default: "python3.7"
+  LambdaHandler:
+    Type: String
+    Default: "index.handler"
+  LambdaMemory:
+    Type: Number
+    Default: 128
+  LambdaTimeout:
+    Type: Number
+    Default: 40
 Resources:
-  CodeTranslate:
-    Type: AWS::Serverless::Function
+  LambdaFunc:
     Properties:
-      CodeUri: s3://codetranslate11/2c9d271d9336722022d285a318174e53
-      Handler: index.handler
-      Runtime: nodejs10.x
+      CodeUri: s3://<bucket-name>/<key>
+      Description: Vue Testing Suite
+      FunctionName:
+        Ref: "LambdaFuncName"
       Events:
-        CodeTranslate:
-          Type: Api
+        ExecuteFunc:
           Properties:
-            Path: /{proxy+}
-            Method: ANY
+            Method: any
+            Path: /
+          Type: Api
+      Handler:
+        Ref: "LambdaHandler"
+      MemorySize:
+        Ref: "LambdaMemory"
+      Runtime:
+        Ref: "LambdaRuntime"
+      Timeout:
+        Ref: "LambdaTimeout"
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31
