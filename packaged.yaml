@@ -3,7 +3,7 @@ Description: Jupyter Executor Service.
 Parameters:
   LambdaFuncName:
     Type: String
-    Default: "pythonTest"
+    Default: "CodeTranslate"
   LambdaRuntime:
     Type: String
     Default: "python3.7"
