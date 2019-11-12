@@ -19,7 +19,7 @@ Parameters:
 Resources:
   LambdaFunc:
     Properties:
-      CodeUri: s3://<bucket-name>/<key>
+      CodeUri: s3://codetranslate11/2c9d271d9336722022d285a318174e53
       Description: Vue Testing Suite
       FunctionName:
         Ref: "LambdaFuncName"
