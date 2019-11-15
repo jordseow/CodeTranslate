@@ -285,7 +285,7 @@ export default {
           contentpython: "",
           hintsjava: 'System.out.println("") is used to print',
           hintspython: 'print("") is used to print',
-          solutionjava: 'publicclassMain{publicstaticvoidmain(String[]args){System.out.println()}}',
+          solutionjava: 'publicclassMain{publicstaticvoidmain(String[]args){System.out.println();}}',
           solutionpython: 'print("Little pig, little pig, let me come in")',
           hiddenCode: ["Little pig, little pig, let me come in"]
         },

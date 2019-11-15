@@ -155,7 +155,7 @@
                     style="color:green"
                   >{{this.output}}</span>
                   <span
-                    v-else-if="this.tryCount[currentTask-1] != 0"
+                    v-else-if="this.output != ''"
                     class="font-weight-bold"
                     style="color:red"
                   >{{this.output}}</span>
