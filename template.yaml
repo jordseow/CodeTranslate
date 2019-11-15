@@ -35,7 +35,7 @@ Resources:
     Type: AWS::IAM::Role
   LambdaFunc:
     Properties:
-      CodeUri: ./lambda-deploy.zip
+      CodeUri: 
       Description: CodeTranslate
       FunctionName:
         Ref: "LambdaFuncName"
