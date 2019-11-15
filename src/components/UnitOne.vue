@@ -244,7 +244,7 @@ export default {
           hintsjava: "You use // for line comment in Java",
           hintspython: "You use # to comment in Python",
           solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        System.out.println("No, no, by the hair on my chinny chin chin");\n        //System.out.println("Welcome in, Mr Wolf!");\n    }\n}',
-          solutionpython: 'print("No, no, by the hair on my chinny chin chin")\n#print("Welcome in, Mr Wolf!")'
+          solutionpython: 'print("No, no, by the hair on my chinny chin chin")\n#print("Welcome in, Mr Wolf!")',
         },
         {
           task:
@@ -295,7 +295,8 @@ export default {
           hintsjava: 'System.out.println("") is used to print',
           hintspython: 'print("") is used to print',
           solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        System.out.println("Little pig, little pig, let me come in")\n    }\n}',
-          solutionpython: 'print("Little pig, little pig, let me come in")'
+          solutionpython: 'print("Little pig, little pig, let me come in")',
+          hiddenCode: ["Little pig, little pig, let me come in"]
         },
         {
           task:
@@ -307,7 +308,8 @@ export default {
           hintsjava: "You use // for line comment in Java",
           hintspython: "You use # to comment in Python",
           solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        System.out.println("No, no, by the hair on my chinny chin chin");\n        //System.out.println("Welcome in, Mr Wolf!");\n    }\n}',
-          solutionpython: 'print("No, no, by the hair on my chinny chin chin")\n#print("Welcome in, Mr Wolf!")'
+          solutionpython: 'print("No, no, by the hair on my chinny chin chin")\n#print("Welcome in, Mr Wolf!")',
+          hiddenCode: ["No, no, by the hair on my chinny chin chin"]
         },
         {
           task:
@@ -321,7 +323,8 @@ export default {
           hintspython:
             "You can declare the variable without having to indicate the data type",
           solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        int numberOfHuffsPuffs = 3;\n        System.out.println("Open the door now or I will huff and puff " \n                + numberOfHuffsPuffs \n                + " times and blow your house in!");\n    }\n}',
-          solutionpython: '# Uncomment the line below and assign an appropriate value to the variable\n# number_of_huffs_puffs = 3\nprint("Open the door now or I will huff and puff " + number_of_huffs_puffs + " times and blow your house in!")'
+          solutionpython: '# Uncomment the line below and assign an appropriate value to the variable\n# number_of_huffs_puffs = 3\nprint("Open the door now or I will huff and puff " + number_of_huffs_puffs + " times and blow your house in!")',
+          hiddenCode: ["Open the door now or I will huff and puff ", " times and blow your house in!"]
         },
         {
           task:
@@ -333,7 +336,8 @@ export default {
           hintsjava: 'Use "if (somecondition) { }" and "else { }"',
           hintspython: 'Use "if somecondition:" and "else:"',
           solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        // Do not edit code here\n        boolean doorClosed = true;\n\n        // After 5 minutes\n        // Edit code below\n        if (doorClosed) {\n            System.out.println("I am blowing your house in!");\n        } else {\n            System.out.println("I will eat you now!");\n        }\n    }\n}',
-          solutionpython: 'door_closed = True\n\n# After 5 minutes\n# Edit code below\nif door_closed:\n    print("I am blowing your house in!")\nelse:\n    print("I will eat you now!")'
+          solutionpython: 'door_closed = True\n\n# After 5 minutes\n# Edit code below\nif door_closed:\n    print("I am blowing your house in!")\nelse:\n    print("I will eat you now!")',
+          hiddenCode: ["I am blowing your house in!", "I will eat you now!"]
         },
         {
           task:
@@ -345,7 +349,8 @@ export default {
           hintsjava: 'Use "if (somecondition) { }" and "else { }"',
           hintspython: 'Use "if somecondition:" and "else:"\n    You can set boolean values as "True" or "False"',
           solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        int weight = 30;\n        boolean letGo;\n        if (weight > 50) {\n            letGo = false;\n        } else {\n            letGo = true;\n        }\n        System.out.println(letGo);\n    }\n}',
-          solutionpython: 'weight = 30\nletGo = False\nif weight < 50:\n    letGo = True\nprint(letGo)'
+          solutionpython: 'weight = 30\nletGo = False\nif weight < 50:\n    letGo = True\nprint(letGo)',
+          hiddenCode: []
         }
       ],
       firebaseUrl: "https://codetranslate-2019.firebaseio.com/"
@@ -355,10 +360,10 @@ export default {
     editor: require("vue2-ace-editor")
   },
   methods: {
-    postContents: function() {
+    postContents: async function() {
       // comment: leaving the gatewayUrl empty - API will post back to itself
       const gatewayUrl =
-        "https://z1xebr7htc.execute-api.us-east-1.amazonaws.com/default/codeTranslateLambda";
+        "https://0nlvhj3sia.execute-api.us-east-1.amazonaws.com/default/findCompile";
       let content = "";
       let answer = "";
       if (this.translateTo === "java") {
@@ -368,19 +373,21 @@ export default {
         content = this.layoutItems[this.currentTask - 1].contentpython;
         answer = this.layoutItems[this.currentTask - 1].solutionpython;
       }
-      fetch(gatewayUrl, {
+      await fetch(gatewayUrl, {
         method: "POST",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ shown: { 0: answer }, editable: { 0: content } })
+        body: JSON.stringify({ shown: { 0: answer }, editable: { 0: content } , hidden: { 0: {dialogCode:this.layoutItems[this.currentTask - 1].hiddenCode, type:'java'} } })
       })
         .then(response => {
           return response.json();
         })
         .then(data => {
           this.answer = JSON.parse(JSON.stringify(data));
+          console.log(data);
+          this.output = data.textFeedback;
           return this.toggleQuestionStatus(data);
         });
     },
@@ -391,7 +398,7 @@ export default {
         if (searchText.includes("You got the answer")) {
           this.correct[this.currentTask] = true;
           this.log_event({ event: "correct", question: this.currentTask });
-        } else if (searchText.includes("You have missed")) {
+        } else {
           this.correct[this.currentTask] = false;
           this.log_event({ event: "incorrect", question: this.currentTask });
         }
@@ -446,7 +453,7 @@ export default {
           this.currentTask - 1
         ].contentpython;
       }
-      this.tryCount[currentTask - 1] = 0;
+      this.tryCount[this.currentTask - 1] = 0;
     },
     insert_chat: function() {
       if (

@@ -324,7 +324,8 @@ export default {
           hintspython: '"Use while (somecondition):"',
           solutionjava:
             'public class Main {    \n    public static void main(String[] args) {\n        int numberOfRocksThrown = 0;\n        while (numberOfRocksThrown < 20) {\n            numberOfRocksThrown++;\n        }\n        System.out.println("I\'m tired...");\n    }\n}',
-          solutionpython: 'number_of_rocks_thrown = 0\nwhile (number_of_rocks_thrown < 20):\n    number_of_rocks_thrown\nprint("I\'m tired...")'
+          solutionpython: 'number_of_rocks_thrown = 0\nwhile (number_of_rocks_thrown < 20):\n    number_of_rocks_thrown\nprint("I\'m tired...")',
+          hiddenCode: []
         },
         {
           task:
@@ -336,7 +337,8 @@ export default {
           hintspython: "for i in range(start, stop, step):",
           solutionjava:
             'public class Main {    \n    public static void main(String[] args) {\n        int i;\n        for (i = 0; i < 10; i++) {\n            System.out.println("Bang!");\n        }\n    }\n}',
-          solutionpython: 'for i in range(0, 10):\n    print("Bang!")'
+          solutionpython: 'for i in range(0, 10):\n    print("Bang!")',
+          hiddenCode: []
         },
         {
           task:
@@ -350,7 +352,8 @@ export default {
           hintspython: "for i in range(start, stop, step):",
           solutionjava:
             "public class Main {    \n    public static void main(String[] args) {\n        int numberOfShoes = 1;\n        int i;\n        for (i = 0; i < 3; i++) {\n            System.out.println(numberOfShoes);\n            numberOfShoes++;\n        }\n    }\n}",
-          solutionpython: "number_of_shoes = 1\nfor i in range(0, 3):\n    print(number_of_shoes)\n    number_of_shoes += 1"
+          solutionpython: "number_of_shoes = 1\nfor i in range(0, 3):\n    print(number_of_shoes)\n    number_of_shoes += 1",
+          hiddenCode: []
         },
         {
           task:
@@ -363,7 +366,8 @@ export default {
           hintspython: "for i in range(start, stop, step):",
           solutionjava:
             'public class Main {    \n    public static void main(String[] args) {\n        int numberOfPigs = 3;\n        int numberOfBites = 3;\n        for (int i = 0; i < numberOfPigs; i++) {\n            for (int j = 0; j < numberOfBites; j++) {\n                System.out.println("Yummy!");\n            }\n            System.out.println("One down!");\n        }\n    }\n}',
-          solutionpython: 'number_of_pigs = 3\nnumber_of_bites = 3\nfor i in range(0, 3):\n    for j in range(0, 3):\n        print("Yummy!")\n    print("One down!")'
+          solutionpython: 'number_of_pigs = 3\nnumber_of_bites = 3\nfor i in range(0, 3):\n    for j in range(0, 3):\n        print("Yummy!")\n    print("One down!")',
+          hiddenCode: []
         }
       ],
       firebaseUrl: "https://codetranslate-2019.firebaseio.com/"
