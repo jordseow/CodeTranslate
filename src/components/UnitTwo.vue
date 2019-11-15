@@ -153,12 +153,12 @@
                     v-if="isComplete(currentTask)"
                     class="font-weight-bold"
                     style="color:green"
-                  >Great Job!</span>
+                  >{{this.output}}</span>
                   <span
                     v-else-if="this.tryCount[currentTask-1] != 0"
                     class="font-weight-bold"
                     style="color:red"
-                  >Try Again!</span>
+                  >{{this.output}}</span>
                   <span v-else-if="this.tryCount[currentTask-1] === 0"></span>
                 </div>
               </b-card>
@@ -208,6 +208,7 @@ export default {
       originUrl: "",
       currentTask: 1,
       text: "",
+      output: "",
       solutions: {
         1: 'public class Main {    \n    public static void main(String[] args) {\n        System.out.println("Hello World!");\n    }\n}',
         2: 'public class Main {    \n    public static void main(String[] args) {\n        //System.out.println("Coding is hard");\n        System.out.println("Coding is really fun!");\n    }\n}',
@@ -238,7 +239,7 @@ export default {
             'Use "while (somecondition { }" and you can use the shorthand variable++ which is the same as variable += 1',
           hintspython: '"Use while (somecondition):"',
           solutionjava:
-            'public class Main {    \n    public static void main(String[] args) {\n        int numberOfHuffsPuffs = 0;\n        while (numberOfHuffsPuffs < 10) {\n            System.out.println("Huff and Puff!");\n            numberOfHuffsPuffs++;\n        }\n    }\n}',
+            'publicclassMain{publicstaticvoidmain(String[]args){intnumberOfHuffsPuffs=0;while(numberOfHuffsPuffs<10){System.out.println();numberOfHuffsPuffs++;}}}',
           solutionpython: ""
         },
         {
@@ -307,7 +308,7 @@ export default {
             'Use "while (somecondition { }" and you can use the shorthand variable++ which is the same as variable += 1',
           hintspython: '"Use while (somecondition):"',
           solutionjava:
-            'public class Main {    \n    public static void main(String[] args) {\n        int numberOfHuffsPuffs = 0;\n        while (numberOfHuffsPuffs < 10) {\n            System.out.println("Huff and Puff!");\n            numberOfHuffsPuffs++;\n        }\n    }\n}',
+            'publicclassMain{publicstaticvoidmain(String[]args){intnumberOfHuffsPuffs=0;while(numberOfHuffsPuffs<10){System.out.println();numberOfHuffsPuffs++;}}}',
           solutionpython: ""
         },
         {
@@ -371,10 +372,10 @@ export default {
     editor: require("vue2-ace-editor")
   },
   methods: {
-    postContents: function() {
+    postContents: async function() {
       // comment: leaving the gatewayUrl empty - API will post back to itself
       const gatewayUrl =
-        "https://z1xebr7htc.execute-api.us-east-1.amazonaws.com/default/codeTranslateLambda";
+        "https://0nlvhj3sia.execute-api.us-east-1.amazonaws.com/default/findCompile";
       let content = "";
       let answer = "";
       if (this.translateTo === "java") {
@@ -384,19 +385,21 @@ export default {
         content = this.layoutItems[this.currentTask - 1].contentpython;
         answer = this.layoutItems[this.currentTask - 1].solutionpython;
       }
-      fetch(gatewayUrl, {
+      await fetch(gatewayUrl, {
         method: "POST",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ shown: { 0: answer }, editable: { 0: content } })
+        body: JSON.stringify({ shown: { 0: answer }, editable: { 0: content } , hidden: { 0: {dialogCode:[], type:'java'} } })
       })
         .then(response => {
           return response.json();
         })
         .then(data => {
           this.answer = JSON.parse(JSON.stringify(data));
+          console.log(data);
+          this.output = data.textFeedback;
           return this.toggleQuestionStatus(data);
         });
     },
@@ -407,7 +410,7 @@ export default {
         if (searchText.includes("You got the answer")) {
           this.correct[this.currentTask] = true;
           this.log_event({ event: "correct", question: this.currentTask });
-        } else if (searchText.includes("You have missed")) {
+        } else {
           this.correct[this.currentTask] = false;
           this.log_event({ event: "incorrect", question: this.currentTask });
         }
@@ -462,7 +465,7 @@ export default {
           this.currentTask - 1
         ].contentpython;
       }
-      this.tryCount[currentTask - 1] = 0;
+      this.tryCount[this.currentTask - 1] = 0;
     },
     insert_chat: function() {
       if (
