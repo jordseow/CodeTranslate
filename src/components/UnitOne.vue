@@ -238,8 +238,8 @@ export default {
           contentpython: "",
           hintsjava: 'System.out.println("") is used to print',
           hintspython: 'print("") is used to print',
-          solutionjava: "",
-          solutionpython: ""
+          solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        System.out.println("Little pig, little pig, let me come in")\n    }\n}',
+          solutionpython: 'print("Little pig, little pig, let me come in")'
         },
         {
           task:
@@ -250,8 +250,8 @@ export default {
             'print("No, no, by the hair on my chinny chin chin")\nprint("Welcome in, Mr Wolf!")',
           hintsjava: "You use // for line comment in Java",
           hintspython: "You use # to comment in Python",
-          solutionjava: "",
-          solutionpython: ""
+          solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        System.out.println("No, no, by the hair on my chinny chin chin");\n        //System.out.println("Welcome in, Mr Wolf!");\n    }\n}',
+          solutionpython: 'print("No, no, by the hair on my chinny chin chin")\n#print("Welcome in, Mr Wolf!")'
         },
         {
           task:
@@ -264,32 +264,32 @@ export default {
             "You have to indicate the data type before the variable name (e.g. int, boolean, String, double)",
           hintspython:
             "You can declare the variable without having to indicate the data type",
-          solutionjava: "",
-          solutionpython: ""
+          solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        int numberOfHuffsPuffs = 3;\n        System.out.println("Open the door now or I will huff and puff " \n                + numberOfHuffsPuffs \n                + " times and blow your house in!");\n    }\n}',
+          solutionpython: '# Uncomment the line below and assign an appropriate value to the variable\n# number_of_huffs_puffs = 3\nprint("Open the door now or I will huff and puff " + number_of_huffs_puffs + " times and blow your house in!")'
         },
         {
           task:
             'You decided to wait 5 minutes before making your next move. Edit the java code below so that: If the door is closed after 5 mins, print "I am blowing your house in!" Else eat the first little pig by printing "I will eat you now!"',
           contentjava:
-            "public class Main {    \n    public static void main(String[] args) {\n        // Do not edit code here\n        boolean doorClosed = true;\n\n        // After 5 minutes\n        // Edit code below\n        if () {\n            //\n        } else {\n            //\n        }\n    }\n}",
+            'public class Main {    \n    public static void main(String[] args) {\n        // Do not edit code here\n        boolean doorClosed = true;\n\n        // After 5 minutes\n        // Edit code below\n        if () {\n            //\n        } else {\n            //\n        }\n    }\n}',
           contentpython:
-            "door_closed = True\n\n# After 5 minutes\n# Edit code below\nif :\n    #\nelse:\n    #",
+            'door_closed = True\n\n# After 5 minutes\n# Edit code below\nif :\n    #\nelse:\n    #',
           hintsjava: 'Use "if (somecondition) { }" and "else { }"',
           hintspython: 'Use "if somecondition:" and "else:"',
-          solutionjava: "",
-          solutionpython: ""
+          solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        // Do not edit code here\n        boolean doorClosed = true;\n\n        // After 5 minutes\n        // Edit code below\n        if (doorClosed) {\n            System.out.println("I am blowing your house in!");\n        } else {\n            System.out.println("I will eat you now!");\n        }\n    }\n}',
+          solutionpython: 'door_closed = True\n\n# After 5 minutes\n# Edit code below\nif door_closed:\n    print("I am blowing your house in!")\nelse:\n    print("I will eat you now!")'
         },
         {
           task:
             "After blowing the house down, you see the first little pig curled up in the corner, helpless. Being the softhearted Mr Wolf you are, you decided that you would only: If he is more than 50kg, eat him. Else you will let him go. The pig is 30kg. Fill up the code and: Return true if you eat the pig. Return false if you let him go.",
           contentjava:
-            "public class Main {    \n    public static void main(String[] args) {\n        int weight;\n        boolean letGo;\n        if (weight > ) {\n            letGo = ;\n        } else {\n            letGo = ;\n        }\n        System.out.println(letGo);\n    }\n}",
+            'public class Main {    \n    public static void main(String[] args) {\n        int weight;\n        boolean letGo;\n        if (weight > ) {\n            letGo = ;\n        } else {\n            letGo = ;\n        }\n        System.out.println(letGo);\n    }\n}',
           contentpython:
-            "weight =\nletGo = False\nif weight < :\n    letGo = \nprint(letGo)",
+            'weight =\nletGo = False\nif weight < :\n    letGo = \nprint(letGo)',
           hintsjava: 'Use "if (somecondition) { }" and "else { }"',
-          hintspython: 'Use "if somecondition:" and "else:"',
-          solutionjava: "",
-          solutionpython: ""
+          hintspython: 'Use "if somecondition:" and "else:"\n    You can set boolean values as "True" or "False"',
+          solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        int weight = 30;\n        boolean letGo;\n        if (weight > 50) {\n            letGo = false;\n        } else {\n            letGo = true;\n        }\n        System.out.println(letGo);\n    }\n}',
+          solutionpython: 'weight = 30\nletGo = False\nif weight < 50:\n    letGo = True\nprint(letGo)'
         }
       ],
       layoutItems: [
@@ -301,8 +301,8 @@ export default {
           contentpython: "",
           hintsjava: 'System.out.println("") is used to print',
           hintspython: 'print("") is used to print',
-          solutionjava: "",
-          solutionpython: ""
+          solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        System.out.println("Little pig, little pig, let me come in")\n    }\n}',
+          solutionpython: 'print("Little pig, little pig, let me come in")'
         },
         {
           task:
@@ -313,8 +313,8 @@ export default {
             'print("No, no, by the hair on my chinny chin chin")\nprint("Welcome in, Mr Wolf!")',
           hintsjava: "You use // for line comment in Java",
           hintspython: "You use # to comment in Python",
-          solutionjava: "",
-          solutionpython: ""
+          solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        System.out.println("No, no, by the hair on my chinny chin chin");\n        //System.out.println("Welcome in, Mr Wolf!");\n    }\n}',
+          solutionpython: 'print("No, no, by the hair on my chinny chin chin")\n#print("Welcome in, Mr Wolf!")'
         },
         {
           task:
@@ -327,32 +327,32 @@ export default {
             "You have to indicate the data type before the variable name (e.g. int, boolean, String, double)",
           hintspython:
             "You can declare the variable without having to indicate the data type",
-          solutionjava: "",
-          solutionpython: ""
+          solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        int numberOfHuffsPuffs = 3;\n        System.out.println("Open the door now or I will huff and puff " \n                + numberOfHuffsPuffs \n                + " times and blow your house in!");\n    }\n}',
+          solutionpython: '# Uncomment the line below and assign an appropriate value to the variable\n# number_of_huffs_puffs = 3\nprint("Open the door now or I will huff and puff " + number_of_huffs_puffs + " times and blow your house in!")'
         },
         {
           task:
             'You decided to wait 5 minutes before making your next move. Edit the java code below so that: If the door is closed after 5 mins, print "I am blowing your house in!" Else eat the first little pig by printing "I will eat you now!"',
           contentjava:
-            "public class Main {    \n    public static void main(String[] args) {\n        // Do not edit code here\n        boolean doorClosed = true;\n\n        // After 5 minutes\n        // Edit code below\n        if () {\n            //\n        } else {\n            //\n        }\n    }\n}",
+            'public class Main {    \n    public static void main(String[] args) {\n        // Do not edit code here\n        boolean doorClosed = true;\n\n        // After 5 minutes\n        // Edit code below\n        if () {\n            //\n        } else {\n            //\n        }\n    }\n}',
           contentpython:
-            "door_closed = True\n\n# After 5 minutes\n# Edit code below\nif :\n    #\nelse:\n    #",
+            'door_closed = True\n\n# After 5 minutes\n# Edit code below\nif :\n    #\nelse:\n    #',
           hintsjava: 'Use "if (somecondition) { }" and "else { }"',
           hintspython: 'Use "if somecondition:" and "else:"',
-          solutionjava: "",
-          solutionpython: ""
+          solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        // Do not edit code here\n        boolean doorClosed = true;\n\n        // After 5 minutes\n        // Edit code below\n        if (doorClosed) {\n            System.out.println("I am blowing your house in!");\n        } else {\n            System.out.println("I will eat you now!");\n        }\n    }\n}',
+          solutionpython: 'door_closed = True\n\n# After 5 minutes\n# Edit code below\nif door_closed:\n    print("I am blowing your house in!")\nelse:\n    print("I will eat you now!")'
         },
         {
           task:
             "After blowing the house down, you see the first little pig curled up in the corner, helpless. Being the softhearted Mr Wolf you are, you decided that you would only: If he is more than 50kg, eat him. Else you will let him go. The pig is 30kg. Fill up the code and: Return true if you eat the pig. Return false if you let him go.",
           contentjava:
-            "public class Main {    \n    public static void main(String[] args) {\n        int weight;\n        boolean letGo;\n        if (weight > ) {\n            letGo = ;\n        } else {\n            letGo = ;\n        }\n        System.out.println(letGo);\n    }\n}",
+            'public class Main {    \n    public static void main(String[] args) {\n        int weight;\n        boolean letGo;\n        if (weight > ) {\n            letGo = ;\n        } else {\n            letGo = ;\n        }\n        System.out.println(letGo);\n    }\n}',
           contentpython:
-            "weight =\nletGo = False\nif weight < :\n    letGo = \nprint(letGo)",
+            'weight =\nletGo = False\nif weight < :\n    letGo = \nprint(letGo)',
           hintsjava: 'Use "if (somecondition) { }" and "else { }"',
-          hintspython: 'Use "if somecondition:" and "else:"',
-          solutionjava: "",
-          solutionpython: ""
+          hintspython: 'Use "if somecondition:" and "else:"\n    You can set boolean values as "True" or "False"',
+          solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        int weight = 30;\n        boolean letGo;\n        if (weight > 50) {\n            letGo = false;\n        } else {\n            letGo = true;\n        }\n        System.out.println(letGo);\n    }\n}',
+          solutionpython: 'weight = 30\nletGo = False\nif weight < 50:\n    letGo = True\nprint(letGo)'
         }
       ],
       firebaseUrl: "https://codetranslate-2019.firebaseio.com/"
