@@ -210,6 +210,7 @@ export default {
       showHints: false,
       originUrl: "",
       currentTask: 1,
+      output: "",
       text: "",
       correct: {
         1: false,
@@ -230,9 +231,7 @@ export default {
             "public class Main {    \n    public static void main(String[] args) {\n        // Your code here\n    }\n}",
           contentpython: "",
           hintsjava: 'System.out.println("") is used to print',
-          hintspython: 'print("") is used to print',
-          solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        System.out.println("Little pig, little pig, let me come in")\n    }\n}',
-          solutionpython: 'print("Little pig, little pig, let me come in")'
+          hintspython: 'print("") is used to print'
         },
         {
           task:
@@ -242,9 +241,7 @@ export default {
           contentpython:
             'print("No, no, by the hair on my chinny chin chin")\nprint("Welcome in, Mr Wolf!")',
           hintsjava: "You use // for line comment in Java",
-          hintspython: "You use # to comment in Python",
-          solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        System.out.println("No, no, by the hair on my chinny chin chin");\n        //System.out.println("Welcome in, Mr Wolf!");\n    }\n}',
-          solutionpython: 'print("No, no, by the hair on my chinny chin chin")\n#print("Welcome in, Mr Wolf!")',
+          hintspython: "You use # to comment in Python"
         },
         {
           task:
@@ -256,9 +253,7 @@ export default {
           hintsjava:
             "You have to indicate the data type before the variable name (e.g. int, boolean, String, double)",
           hintspython:
-            "You can declare the variable without having to indicate the data type",
-          solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        int numberOfHuffsPuffs = 3;\n        System.out.println("Open the door now or I will huff and puff " \n                + numberOfHuffsPuffs \n                + " times and blow your house in!");\n    }\n}',
-          solutionpython: '# Uncomment the line below and assign an appropriate value to the variable\n# number_of_huffs_puffs = 3\nprint("Open the door now or I will huff and puff " + number_of_huffs_puffs + " times and blow your house in!")'
+            "You can declare the variable without having to indicate the data type"
         },
         {
           task:
@@ -268,9 +263,7 @@ export default {
           contentpython:
             'door_closed = True\n\n# After 5 minutes\n# Edit code below\nif :\n    #\nelse:\n    #',
           hintsjava: 'Use "if (somecondition) { }" and "else { }"',
-          hintspython: 'Use "if somecondition:" and "else:"',
-          solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        // Do not edit code here\n        boolean doorClosed = true;\n\n        // After 5 minutes\n        // Edit code below\n        if (doorClosed) {\n            System.out.println("I am blowing your house in!");\n        } else {\n            System.out.println("I will eat you now!");\n        }\n    }\n}',
-          solutionpython: 'door_closed = True\n\n# After 5 minutes\n# Edit code below\nif door_closed:\n    print("I am blowing your house in!")\nelse:\n    print("I will eat you now!")'
+          hintspython: 'Use "if somecondition:" and "else:"'
         },
         {
           task:
@@ -280,9 +273,7 @@ export default {
           contentpython:
             'weight =\nletGo = False\nif weight < :\n    letGo = \nprint(letGo)',
           hintsjava: 'Use "if (somecondition) { }" and "else { }"',
-          hintspython: 'Use "if somecondition:" and "else:"\n    You can set boolean values as "True" or "False"',
-          solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        int weight = 30;\n        boolean letGo;\n        if (weight > 50) {\n            letGo = false;\n        } else {\n            letGo = true;\n        }\n        System.out.println(letGo);\n    }\n}',
-          solutionpython: 'weight = 30\nletGo = False\nif weight < 50:\n    letGo = True\nprint(letGo)'
+          hintspython: 'Use "if somecondition:" and "else:"\n    You can set boolean values as "True" or "False"'
         }
       ],
       layoutItems: [
@@ -294,7 +285,7 @@ export default {
           contentpython: "",
           hintsjava: 'System.out.println("") is used to print',
           hintspython: 'print("") is used to print',
-          solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        System.out.println("Little pig, little pig, let me come in")\n    }\n}',
+          solutionjava: 'publicclassMain{publicstaticvoidmain(String[]args){System.out.println()}}',
           solutionpython: 'print("Little pig, little pig, let me come in")',
           hiddenCode: ["Little pig, little pig, let me come in"]
         },
@@ -307,7 +298,7 @@ export default {
             'print("No, no, by the hair on my chinny chin chin")\nprint("Welcome in, Mr Wolf!")',
           hintsjava: "You use // for line comment in Java",
           hintspython: "You use # to comment in Python",
-          solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        System.out.println("No, no, by the hair on my chinny chin chin");\n        //System.out.println("Welcome in, Mr Wolf!");\n    }\n}',
+          solutionjava: 'publicclassMain{publicstaticvoidmain(String[]args){System.out.println();}}',
           solutionpython: 'print("No, no, by the hair on my chinny chin chin")\n#print("Welcome in, Mr Wolf!")',
           hiddenCode: ["No, no, by the hair on my chinny chin chin"]
         },
@@ -322,7 +313,7 @@ export default {
             "You have to indicate the data type before the variable name (e.g. int, boolean, String, double)",
           hintspython:
             "You can declare the variable without having to indicate the data type",
-          solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        int numberOfHuffsPuffs = 3;\n        System.out.println("Open the door now or I will huff and puff " \n                + numberOfHuffsPuffs \n                + " times and blow your house in!");\n    }\n}',
+          solutionjava: 'publicclassMain{publicstaticvoidmain(String[]args){intnumberOfHuffsPuffs=3;System.out.println(+numberOfHuffsPuffs+);}}',
           solutionpython: '# Uncomment the line below and assign an appropriate value to the variable\n# number_of_huffs_puffs = 3\nprint("Open the door now or I will huff and puff " + number_of_huffs_puffs + " times and blow your house in!")',
           hiddenCode: ["Open the door now or I will huff and puff ", " times and blow your house in!"]
         },
@@ -379,7 +370,7 @@ export default {
           Accept: "application/json",
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ shown: { 0: answer }, editable: { 0: content } , hidden: { 0: {dialogCode:this.layoutItems[this.currentTask - 1].hiddenCode, type:'java'} } })
+        body: JSON.stringify({ shown: { 0: answer }, editable: { 0: content } , hidden: { 0: {dialogCode:this.layoutItems[this.currentTask - 1].hiddenCode, type:this.translateTo} } })
       })
         .then(response => {
           return response.json();
