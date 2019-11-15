@@ -156,12 +156,12 @@
                     v-if="isComplete(currentTask)"
                     class="font-weight-bold"
                     style="color:green"
-                  >Great Job!</span>
+                  >{{this.output}}</span>
                   <span
-                    v-else-if="this.tryCount[currentTask-1] != 0"
+                    v-else-if="this.output != ''"
                     class="font-weight-bold"
                     style="color:red"
-                  >Try Again!</span>
+                  >{{this.output}}</span>
                   <span v-else-if="this.tryCount[currentTask-1] === 0"></span>
                 </div>
               </b-card>
