@@ -442,7 +442,7 @@ export default {
     },
     fetch_chat_logs: async function() {
       let response = await fetch(
-        "https://codetranslate-2019.firebaseio.com/chat.json"
+        this.firebaseUrl + "/chat.json"
       );
       let data = await response.json();
       this.chatLogs = data;
@@ -480,7 +480,7 @@ export default {
     },
     insert_chat_event: function(event) {
       console.log("Logging event.");
-      fetch("https://codetranslate-2019.firebaseio.com/chat.json", {
+      fetch(this.firebaseUrl + "/chat.json", {
         method: "post",
         body: JSON.stringify(event)
       })

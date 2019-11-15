@@ -211,13 +211,6 @@ export default {
       originUrl: "",
       currentTask: 1,
       text: "",
-      solutions: {
-        1: 'public class Main {    \n    public static void main(String[] args) {\n        System.out.println("Hello World!");\n    }\n}',
-        2: 'public class Main {    \n    public static void main(String[] args) {\n        //System.out.println("Coding is hard");\n        System.out.println("Coding is really fun!");\n    }\n}',
-        3: "public class Main {    \n    public static void main(String[] args) {\n        int x = 5;\n        System.out.println(x);\n    }\n}",
-        4: 'public class Main {    \n    public static void main(String[] args) {\n        /*harlo harlo\n        java is hard*/\n        System.out.println("Hello World!");\n    }\n}',
-        5: 'public class Main {    \n    public static void main(String[] args) {\n        String x = "Hello ";\n        String y = "World!";\n        System.out.println(x+y);\n    }\n}'
-      },
       correct: {
         1: false,
         2: false,
@@ -433,7 +426,7 @@ export default {
     },
     fetch_chat_logs: async function() {
       let response = await fetch(
-        "https://codetranslate-2019.firebaseio.com/chat.json"
+        this.firebaseUrl + "/chat.json"
       );
       let data = await response.json();
       this.chatLogs = data;
@@ -471,7 +464,7 @@ export default {
     },
     insert_chat_event: function(event) {
       console.log("Logging event.");
-      fetch("https://codetranslate-2019.firebaseio.com/chat.json", {
+      fetch(this.firebaseUrl + "/chat.json", {
         method: "post",
         body: JSON.stringify(event)
       })
