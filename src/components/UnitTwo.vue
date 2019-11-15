@@ -352,7 +352,7 @@ export default {
           solutionjava:
             'publicclassMain{publicstaticvoidmain(String[]args){intnumberOfPigs=3;intnumberOfBites=3;for(inti=0;i<numberOfPigs;i++){for(intj=0;j<numberOfBites;j++){System.out.println();}System.out.println();}}}',
           solutionpython: 'number_of_pigs = 3\nnumber_of_bites = 3\nfor i in range(0, 3):\n    for j in range(0, 3):\n        print("Yummy!")\n    print("One down!")',
-          hiddenCode: ["Yummy", "One down!"]
+          hiddenCode: ["Yummy!", "One down!"]
         }
       ],
       firebaseUrl: "https://codetranslate-2019.firebaseio.com/"
