@@ -442,6 +442,7 @@ export default {
     },
     reset() {
       this.correct[this.currentTask] = false;
+      this.output=""
       if (this.translateTo === "java") {
         this.layoutItems[
           this.currentTask - 1

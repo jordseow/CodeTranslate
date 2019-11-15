@@ -300,7 +300,7 @@ export default {
           hintspython: "You use # to comment in Python",
           solutionjava: 'publicclassMain{publicstaticvoidmain(String[]args){System.out.println();}}',
           solutionpython: 'print("No, no, by the hair on my chinny chin chin")\n#print("Welcome in, Mr Wolf!")',
-          hiddenCode: ["No, no, by the hair on my chinny chin chin"]
+          hiddenCode: ["No, no, by the hair on my chinny chin chin", "Welcome in, Mr Wolf!"]
         },
         {
           task:
@@ -431,6 +431,7 @@ export default {
     },
     reset() {
       this.correct[this.currentTask] = false;
+      this.output=""
       if (this.translateTo === "java") {
         this.layoutItems[
           this.currentTask - 1
