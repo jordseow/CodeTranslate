@@ -1,6 +1,11 @@
-# codetranslate
+# CodeTranslate
 
-> an app to help you learn how to translate from one language to another
+> An app to help you learn how to translate from one language to another.
+
+## User Deployment Manual :blue_book:
+Feel free to check out our :sparkles: **[Wiki](https://github.com/jordseow/CodeTranslate/wiki)** for more information:
+  - [Local Deployment Manual](https://github.com/jordseow/CodeTranslate/wiki/Local-Deployment-Manual)  
+  - [Serverless Deployment Manual](https://github.com/jordseow/CodeTranslate/wiki/Serverless-Deployment-Manual)
 
 ## Build Setup
 
