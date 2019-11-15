@@ -237,10 +237,7 @@ export default {
             "number_of_huffs_puffs = \nwhile (number_of_huffs_puffs < ):\n    print()\n    number_of_huffs_puffs",
           hintsjava:
             'Use "while (somecondition { }" and you can use the shorthand variable++ which is the same as variable += 1',
-          hintspython: '"Use while (somecondition):"',
-          solutionjava:
-            'publicclassMain{publicstaticvoidmain(String[]args){intnumberOfHuffsPuffs=0;while(numberOfHuffsPuffs<10){System.out.println();numberOfHuffsPuffs++;}}}',
-          solutionpython: ""
+          hintspython: '"Use while (somecondition):"'
         },
         {
           task:
@@ -251,10 +248,7 @@ export default {
             "number_of_rocks_thrown = \nwhile (number_of_rocks_thrown < ):\n    number_of_rocks_thrown\nprint()",
           hintsjava:
             'Use "while (somecondition { }" and you can use the shorthand variable++ which is the same as variable += 1',
-          hintspython: '"Use while (somecondition):"',
-          solutionjava:
-            'public class Main {    \n    public static void main(String[] args) {\n        int numberOfRocksThrown = 0;\n        while (numberOfRocksThrown < 20) {\n            numberOfRocksThrown++;\n        }\n        System.out.println("I\'m tired...");\n    }\n}',
-          solutionpython: ""
+          hintspython: '"Use while (somecondition):"'
         },
         {
           task:
@@ -263,10 +257,7 @@ export default {
             "public class Main {    \n    public static void main(String[] args) {\n        int i;\n        for (i = ; i < ; i) {\n            System.out.println();\n        }\n    }\n}",
           contentpython: "for i in range( , ):\n    print()",
           hintsjava: "for (initialisation; condition; iteration)",
-          hintspython: "for i in range(start, stop, step):",
-          solutionjava:
-            'public class Main {    \n    public static void main(String[] args) {\n        int i;\n        for (i = 0; i < 10; i++) {\n            System.out.println("Bang!");\n        }\n    }\n}',
-          solutionpython: ""
+          hintspython: "for i in range(start, stop, step):"
         },
         {
           task:
@@ -277,10 +268,7 @@ export default {
             "number_of_shoes = 1\nfor i in range( , ):\n    print()\n    number_of_shoes",
           hintsjava:
             "for (initialisation; condition; iteration), also in Java you can use the shorthand variable++ which is the same as variable += 1",
-          hintspython: "for i in range(start, stop, step):",
-          solutionjava:
-            "public class Main {    \n    public static void main(String[] args) {\n        int numberOfShoes = 1;\n        int i;\n        for (i = 0; i < 3; i++) {\n            System.out.println(numberOfShoes);\n            numberOfShoes++;\n        }\n    }\n}",
-          solutionpython: ""
+          hintspython: "for i in range(start, stop, step):"
         },
         {
           task:
@@ -290,10 +278,7 @@ export default {
           contentpython:
             "number_of_pigs = 3\nnumber_of_bites = 3\nfor i in range( , ):\n    for j in range( , ):\n        print()\n    print()",
           hintsjava: "for (initialisation; condition; iteration)",
-          hintspython: "for i in range(start, stop, step):",
-          solutionjava:
-            'public class Main {    \n    public static void main(String[] args) {\n        int numberOfPigs = 3;\n        int numberOfBites = 3;\n        for (int i = 0; i < numberOfPigs; i++) {\n            for (int j = 0; j < numberOfBites; j++) {\n                System.out.println("Yummy!");\n            }\n            System.out.println("One down!");\n        }\n    }\n}',
-          solutionpython: ""
+          hintspython: "for i in range(start, stop, step):"
         }
       ],
       layoutItems: [
@@ -323,7 +308,7 @@ export default {
             'Use "while (somecondition { }" and you can use the shorthand variable++ which is the same as variable += 1',
           hintspython: '"Use while (somecondition):"',
           solutionjava:
-            'public class Main {    \n    public static void main(String[] args) {\n        int numberOfRocksThrown = 0;\n        while (numberOfRocksThrown < 20) {\n            numberOfRocksThrown++;\n        }\n        System.out.println("I\'m tired...");\n    }\n}',
+            'publicclassMain{publicstaticvoidmain(String[]args){intnumberOfRocksThrown=0;while(numberOfRocksThrown<20){numberOfRocksThrown++;}System.out.println();}}',
           solutionpython: 'number_of_rocks_thrown = 0\nwhile (number_of_rocks_thrown < 20):\n    number_of_rocks_thrown\nprint("I\'m tired...")',
           hiddenCode: []
         },
@@ -336,7 +321,7 @@ export default {
           hintsjava: "for (initialisation; condition; iteration)",
           hintspython: "for i in range(start, stop, step):",
           solutionjava:
-            'public class Main {    \n    public static void main(String[] args) {\n        int i;\n        for (i = 0; i < 10; i++) {\n            System.out.println("Bang!");\n        }\n    }\n}',
+             'publicclassMain{publicstaticvoidmain(String[]args){inti;for(i=0;i<10;i++){System.out.println();}}}',
           solutionpython: 'for i in range(0, 10):\n    print("Bang!")',
           hiddenCode: []
         },
@@ -351,7 +336,7 @@ export default {
             "for (initialisation; condition; iteration), also in Java you can use the shorthand variable++ which is the same as variable += 1",
           hintspython: "for i in range(start, stop, step):",
           solutionjava:
-            "public class Main {    \n    public static void main(String[] args) {\n        int numberOfShoes = 1;\n        int i;\n        for (i = 0; i < 3; i++) {\n            System.out.println(numberOfShoes);\n            numberOfShoes++;\n        }\n    }\n}",
+            'publicclassMain{publicstaticvoidmain(String[]args){intnumberOfShoes=1;inti;for(i=0;i<3;i++){System.out.println(numberOfShoes);numberOfShoes++;}}}',
           solutionpython: "number_of_shoes = 1\nfor i in range(0, 3):\n    print(number_of_shoes)\n    number_of_shoes += 1",
           hiddenCode: []
         },
@@ -365,7 +350,7 @@ export default {
           hintsjava: "for (initialisation; condition; iteration)",
           hintspython: "for i in range(start, stop, step):",
           solutionjava:
-            'public class Main {    \n    public static void main(String[] args) {\n        int numberOfPigs = 3;\n        int numberOfBites = 3;\n        for (int i = 0; i < numberOfPigs; i++) {\n            for (int j = 0; j < numberOfBites; j++) {\n                System.out.println("Yummy!");\n            }\n            System.out.println("One down!");\n        }\n    }\n}',
+            'publicclassMain{publicstaticvoidmain(String[]args){intnumberOfPigs=3;intnumberOfBites=3;for(inti=0;i<numberOfPigs;i++){for(intj=0;j<numberOfBites;j++){System.out.println();}System.out.println();}}}',
           solutionpython: 'number_of_pigs = 3\nnumber_of_bites = 3\nfor i in range(0, 3):\n    for j in range(0, 3):\n        print("Yummy!")\n    print("One down!")',
           hiddenCode: []
         }
