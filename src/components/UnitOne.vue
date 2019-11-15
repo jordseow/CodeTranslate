@@ -326,7 +326,7 @@ export default {
             'door_closed = True\n\n# After 5 minutes\n# Edit code below\nif :\n    #\nelse:\n    #',
           hintsjava: 'Use "if (somecondition) { }" and "else { }"',
           hintspython: 'Use "if somecondition:" and "else:"',
-          solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        // Do not edit code here\n        boolean doorClosed = true;\n\n        // After 5 minutes\n        // Edit code below\n        if (doorClosed) {\n            System.out.println("I am blowing your house in!");\n        } else {\n            System.out.println("I will eat you now!");\n        }\n    }\n}',
+          solutionjava: 'publicclassMain{publicstaticvoidmain(String[]args){booleandoorClosed=true;if(doorClosed){System.out.println();}else{System.out.println();}}}',
           solutionpython: 'door_closed = True\n\n# After 5 minutes\n# Edit code below\nif door_closed:\n    print("I am blowing your house in!")\nelse:\n    print("I will eat you now!")',
           hiddenCode: ["I am blowing your house in!", "I will eat you now!"]
         },
@@ -339,7 +339,7 @@ export default {
             'weight =\nletGo = False\nif weight < :\n    letGo = \nprint(letGo)',
           hintsjava: 'Use "if (somecondition) { }" and "else { }"',
           hintspython: 'Use "if somecondition:" and "else:"\n    You can set boolean values as "True" or "False"',
-          solutionjava: 'public class Main {    \n    public static void main(String[] args) {\n        int weight = 30;\n        boolean letGo;\n        if (weight > 50) {\n            letGo = false;\n        } else {\n            letGo = true;\n        }\n        System.out.println(letGo);\n    }\n}',
+          solutionjava: 'publicclassMain{publicstaticvoidmain(String[]args){intweight=30;booleanletGo;if(weight>50){letGo=false;}else{letGo=true;}System.out.println(letGo);}}',
           solutionpython: 'weight = 30\nletGo = False\nif weight < 50:\n    letGo = True\nprint(letGo)',
           hiddenCode: []
         }
