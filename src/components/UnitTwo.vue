@@ -310,7 +310,7 @@ export default {
           solutionjava:
             'publicclassMain{publicstaticvoidmain(String[]args){intnumberOfRocksThrown=0;while(numberOfRocksThrown<20){numberOfRocksThrown++;}System.out.println();}}',
           solutionpython: 'number_of_rocks_thrown = 0\nwhile (number_of_rocks_thrown < 20):\n    number_of_rocks_thrown\nprint("I\'m tired...")',
-          hiddenCode: []
+          hiddenCode: ["I'm tired..."]
         },
         {
           task:
@@ -323,7 +323,7 @@ export default {
           solutionjava:
              'publicclassMain{publicstaticvoidmain(String[]args){inti;for(i=0;i<10;i++){System.out.println();}}}',
           solutionpython: 'for i in range(0, 10):\n    print("Bang!")',
-          hiddenCode: []
+          hiddenCode: ["Bang!"]
         },
         {
           task:
@@ -352,7 +352,7 @@ export default {
           solutionjava:
             'publicclassMain{publicstaticvoidmain(String[]args){intnumberOfPigs=3;intnumberOfBites=3;for(inti=0;i<numberOfPigs;i++){for(intj=0;j<numberOfBites;j++){System.out.println();}System.out.println();}}}',
           solutionpython: 'number_of_pigs = 3\nnumber_of_bites = 3\nfor i in range(0, 3):\n    for j in range(0, 3):\n        print("Yummy!")\n    print("One down!")',
-          hiddenCode: []
+          hiddenCode: ["Yummy", "One down!"]
         }
       ],
       firebaseUrl: "https://codetranslate-2019.firebaseio.com/"
@@ -381,7 +381,7 @@ export default {
           Accept: "application/json",
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ shown: { 0: answer }, editable: { 0: content } , hidden: { 0: {dialogCode:this.layoutItems[this.currentTask - 1].hiddenCode, type:'java'} } })
+        body: JSON.stringify({ shown: { 0: answer }, editable: { 0: content } , hidden: { 0: {dialogCode:this.layoutItems[this.currentTask - 1].hiddenCode, type: this.translateTo} } })
       })
         .then(response => {
           return response.json();
