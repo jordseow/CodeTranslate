@@ -76,7 +76,6 @@ exports.handler = async (event) => {
             }
         
         }
-        //if type is python
         else {
         userSolution ===  expectedSolution ? (results = "You got the answer!") : results = "You have missed the answer."
         userSolution ===  expectedSolution ? (complete = true) : complete = false
